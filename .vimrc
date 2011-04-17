@@ -109,9 +109,27 @@ filetype indent on
 " Use the htmljinja syntax for twig files
 au BufNewFile,BufRead *.twig setf htmljinja
 
-" Automatically remove trailing whitespaces and ^M chars
-autocmd FileType c,cpp,java,php,js,twig,xml,yml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+" Highlight trailing whitespaces
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
 
+" automatically remove trailing whitespace before write
+function! StripTrailingWhitespace()
+  normal mZ
+  %s/\s\+$//e
+  if line("'Z") != line(".")
+    echo "Stripped whitespace\n"
+  endif
+  normal `Z
+endfunction
+autocmd BufWritePre *.php,*.yml,*.xml,*.js,*.html,*.css :call StripTrailingWhitespace()
+
+map <F2> :call StripTrailingWhitespace()<CR>
+map! <F2> :call StripTrailingWhitespace()<CR>
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 "
@@ -137,7 +155,7 @@ map ]t :tnext<CR>
 " Jump to previous tag match
 map [t :tprevious<CR>
 " Open tag command
-map <C-T> :tag 
+map <C-T> :tag
 let g:Tlist_Ctags_Cmd = 'ctags'
 " Rebuild tag index
 nnoremap <silent> <C-F7> :silent !ctags -h ".php" --PHP-kinds=+cf --recurse --exclude="*/cache/*" --exclude="*/logs/*" --exclude="*/data/*" --exclude="\.git" --exclude="\.svn" --languages=PHP &<cr>:CommandTFlush<cr>
