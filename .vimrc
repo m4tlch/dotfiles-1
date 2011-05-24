@@ -131,6 +131,12 @@ autocmd BufWritePre *.php,*.yml,*.xml,*.js,*.html,*.css :call StripTrailingWhite
 map <F2> :call StripTrailingWhitespace()<CR>
 map! <F2> :call StripTrailingWhitespace()<CR>
 
+"
+" Some sugar on my Keyboard
+"
+imap jj ->
+imap kk \
+
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 "
 "      PLUGINS CONFIGURATION
