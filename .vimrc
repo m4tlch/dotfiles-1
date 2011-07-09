@@ -12,23 +12,26 @@ set directory=~/.vim/tmp        " Directory to put swap file
 " Coloration
 "
 
-set t_Co=256
+set t_Co=256    " use 256 colors
 colorscheme jellybeans
 
 if has('gui_running')
-    set guifont=Monaco\ 12
+    set guifont=Monaco\ 12   " Mac OS X 10.5 default monospace font
 endif
 
 "
 " Tabs & Indentation
 "
 
-set expandtab
-set autoindent
-set smartindent
+set expandtab     " converts tabs to spaces
+set autoindent    " automatically copy indentation from previous line
+set smartindent   " indents one extra level according to current syntax
+" indents with tab = 4 spaces
 set tabstop=4
 set shiftwidth=4
+" fixme: should use softtabstop=4 instead of expandtab and setting tabstop
 
+" define shortcuts ',2' and ',4' to change indentation easily:
 nmap <leader>2 :set tabstop=2<cr>:set shiftwidth=2<cr>
 nmap <leader>4 :set tabstop=4<cr>:set shiftwidth=4<cr>
 
@@ -77,8 +80,8 @@ set wildmode=list:longest           " BASH style completion
 " Navigation & Viewport
 "
 
-set scrolloff=5
-set sidescrolloff=5
+set scrolloff=5       " at least 5 lines of context when moving cursor
+set sidescrolloff=5   " and 5 columns of contet
 set hidden                          " Allow switch beetween modified buffers
 set backspace=indent,eol,start      " Improve backspacing
 
@@ -102,9 +105,9 @@ set encoding=utf-8
 "
 
 syntax enable                       " Enable syntax highlighting
-filetype on
-filetype plugin on
-filetype indent on
+filetype on           " enable file type detection
+filetype plugin on    " load plugins specific to file type
+filetype indent on    " ... and indentation too
 
 " Use the htmljinja syntax for twig files
 au BufNewFile,BufRead *.twig setf htmljinja
@@ -134,6 +137,8 @@ map! <F2> :call StripTrailingWhitespace()<CR>
 "
 " Some sugar on my Keyboard
 "
+
+" in insert mode (imap), some useful shortcuts.
 imap jj ->
 imap kk \
 
