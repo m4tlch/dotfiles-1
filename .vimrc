@@ -53,6 +53,10 @@ if (has('gui_running'))
     set guioptions-=r               " Remove right-hand scroll bar
 endif
 
+" Easily switch between relative & absolute number
+nmap <leader>na :set number<cr>
+nmap <leader>nr :set relativenumber<cr>
+
 " Redraw screen
 nmap <leader>r :redraw!<cr>
 
