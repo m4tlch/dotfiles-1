@@ -57,6 +57,14 @@ endif
 nmap <leader>na :set number<cr>
 nmap <leader>nr :set relativenumber<cr>
 
+" Automatically create save directory if it does not exist
+au BufWrite * :call <SID>MkdirsIfNotExists(expand('<afile>:h'))
+function! <SID>MkdirsIfNotExists(directory)
+    if(!isdirectory(a:directory))
+        call system('mkdir -p '.shellescape(a:directory))
+    endif
+endfunction
+
 " Redraw screen
 nmap <leader>r :redraw!<cr>
 
