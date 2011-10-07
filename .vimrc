@@ -122,7 +122,7 @@ filetype plugin on    " load plugins specific to file type
 filetype indent on    " ... and indentation too
 
 " Use the htmljinja syntax for twig files
-au BufNewFile,BufRead *.twig setf htmljinja
+au BufNewFile,BufRead *.twig set ft=htmljinja
 
 " Highlight trailing whitespaces
 highlight ExtraWhitespace ctermbg=red guibg=red
