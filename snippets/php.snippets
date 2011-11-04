@@ -1,0 +1,9 @@
+snippet phpclass
+	<?php
+
+	namespace `substitute(substitute(expand('%:h'), '/', '\\\\', 'g'), '\(\<\l*\>\\\?\)*', '', '')`;
+
+	class `Filename()`
+	{
+		${1}
+	}
