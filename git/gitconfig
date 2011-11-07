@@ -1,0 +1,7 @@
+[user]
+	name = Antoine Hérault
+	email = antoine.herault@gmail.com
+[color]
+	ui = true
+[core]
+	excludesfile = /home/antoine/.gitignore
