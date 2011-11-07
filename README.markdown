@@ -1,20 +1,17 @@
-About 
+About
 =====
 
-Here is my vim configuration. It is inspired by that of [ornicar] [ornicar]
-which is primarily responsible for my fall into the cult of vim users.
+Here is my configuration for vim, git, bash and other tools.
 
-Installation 
+Installation
 ============
 
 Clone the repository:
 
-    $ clone git://github.com/Herzult/vim-config.git ~/.vim
+    $ clone git://github.com/Herzult/dotfiles.git ~/.dotfiles
 
-Create a symbolic link of the .vimrc file into your home directory:
+Execute the setup script:
 
-    $ ln -s ~/.vim/.vimrc ~/.vimrc
+    $ ./.dotfiles/setup.sh
 
 You are right!
-
-[ornicar]: https://github.com/ornicar
