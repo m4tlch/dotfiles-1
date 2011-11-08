@@ -1,9 +1,19 @@
-snippet phpclass
+snippet class
 	<?php
 
 	namespace `substitute(substitute(expand('%:h'), '/', '\\\\', 'g'), '\(\<\l*\>\\\?\)*', '', '')`;
 
 	class `Filename()`
+	{
+		${1}
+	}
+
+snippet interface
+	<?php
+
+	namespace `substitute(substitute(expand('%:h'), '/', '\\\\', 'g'), '\(\<\l*\>\\\?\)*', '', '')`;
+
+	interface `Filename()`
 	{
 		${1}
 	}
