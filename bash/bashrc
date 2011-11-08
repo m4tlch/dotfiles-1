@@ -1,2 +1,29 @@
+prompt() {
+    last_status="$?"
+    color_base="\[\e[0m\]"
+    color_red_bold="\[\e[1;31m\]"
+    color_green_bold="\[\e[1;32m\]"
+    color_yellow_light="\[\e[0;33m\]"
+    git_branch=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
 
+    if [ $last_status -eq "0" ]
+    then
+        smiley="${color_green_bold} ☺${color_base} "
+    else
+        smiley="${color_red_bold} ☹ [$last_status]${color_base}"
+    fi
 
+    if [ -z "$git_branch" ]
+    then
+        git="";
+    else
+        git=" (${color_yellow_light}${git_branch}${color_base})"
+    fi
+
+    PS1="${smiley}${git} \$ "
+}
+
+PROMPT_COMMAND=prompt
+
+alias ls="ls --color"
+alias ll="ls -l"
