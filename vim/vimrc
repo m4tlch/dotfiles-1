@@ -154,6 +154,9 @@ map! <F2> :call StripTrailingWhitespace()<CR>
 imap jj ->
 imap kk \
 
+" TODO get rid of this specific config
+set wildignore=data/**,app/cache/**,web/bundles/**
+
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 "
 "      PLUGINS CONFIGURATION
