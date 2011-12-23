@@ -27,3 +27,10 @@ PROMPT_COMMAND=prompt
 
 alias ls="ls --color"
 alias ll="ls -l"
+
+# Symfony aliases
+alias sf="./app/console"
+alias sfp="./app/console -e=prod"
+alias sft="./app/console -e=test"
+alias sfb="./app/console -e=test behat"
+alias sfu="phpunit -c app"
