@@ -31,3 +31,6 @@
 [submodule "vim/bundle/abolish"]
 	path = vim/bundle/abolish
 	url = https://github.com/tpope/vim-abolish.git
+[submodule "vim/bundle/jade"]
+	path = vim/bundle/jade
+	url = git://github.com/digitaltoad/vim-jade.git
