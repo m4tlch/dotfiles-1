@@ -1,7 +1,7 @@
 snippet class
 	<?php
 
-	namespace `substitute(substitute(expand('%:h'), '/', '\\\\', 'g'), '\(\<\l*\>\\\?\)*', '', '')`;
+	namespace `substitute(substitute(expand('%:h'), '/', '\\\\', 'g'), '\(\<\U*\>\\\?\)*', '', '')`;
 
 	class `Filename()`
 	{
@@ -10,7 +10,7 @@ snippet class
 snippet interface
 	<?php
 
-	namespace `substitute(substitute(expand('%:h'), '/', '\\\\', 'g'), '\(\<\l*\>\\\?\)*', '', '')`;
+	namespace `substitute(substitute(expand('%:h'), '/', '\\\\', 'g'), '\(\<\U*\>\\\?\)*', '', '')`;
 
 	interface `Filename()`
 	{
@@ -19,7 +19,7 @@ snippet interface
 snippet testcase
 	<?php
 
-	namespace `substitute(substitute(expand('%:h'), '/', '\\\\', 'g'), '\(\<\l*\>\\\?\)*', '', '')`;
+	namespace `substitute(substitute(expand('%:h'), '/', '\\\\', 'g'), '\(\<\U*\>\\\?\)*', '', '')`;
 
 	class `Filename()` extends \PHPUnit_Framework_TestCase
 	{
@@ -28,7 +28,7 @@ snippet testcase
 snippet sfentity
 	<?php
 
-	namespace `substitute(substitute(expand('%:h'), '/', '\\\\', 'g'), '\(\<\l*\>\\\?\)*', '', '')`;
+	namespace `substitute(substitute(expand('%:h'), '/', '\\\\', 'g'), '\(\<\U*\>\\\?\)*', '', '')`;
 
 	use Doctrine\ORM\Mapping as ORM;
 	// use Symfony\Component\Validator\Constraints as Assert;
@@ -50,7 +50,7 @@ snippet sfentity
 snippet sfcommand
 	<?php
 
-	namespace `substitute(substitute(expand('%:h'), '/', '\\\\', 'g'), '\(\<\l*\>\\\?\)*', '', '')`;
+	namespace `substitute(substitute(expand('%:h'), '/', '\\\\', 'g'), '\(\<\U*\>\\\?\)*', '', '')`;
 
 	use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 	use Symfony\Component\Console\Input\InputInterface;
