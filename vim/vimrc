@@ -141,7 +141,6 @@ function! StripTrailingWhitespace()
   endif
   normal `Z
 endfunction
-autocmd BufWritePre *.php,*.yml,*.xml,*.js,*.html,*.css :call StripTrailingWhitespace()
 
 map <F2> :call StripTrailingWhitespace()<CR>
 map! <F2> :call StripTrailingWhitespace()<CR>
