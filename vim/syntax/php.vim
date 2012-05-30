@@ -411,7 +411,7 @@ syntax keyword phpClasses containedin=ALLBUT,phpComment,phpStringDouble,phpStrin
 syn keyword phpStatement if else elseif while do for foreach break switch case default continue return goto as endif endwhile endfor endforeach endswitch declare endeclare contained
 
 " Class Keywords
-syn keyword phpType class abstract extends interface implements static final var public private protected const contained
+syn keyword phpType class abstract extends interface implements static final var public private protected const contained trait
 
 " Magic Methods
 syn keyword phpStatement __construct __destruct __call __callStatic __get __set __isset __unset __sleep __wakeup __toString __invoke __set_state __clone contained
