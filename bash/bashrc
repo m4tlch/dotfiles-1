@@ -34,3 +34,5 @@ alias sfp="./app/console -e=prod"
 alias sft="./app/console -e=test"
 alias sfb="./app/console -e=test behat"
 alias sfu="phpunit -c app"
+
+PATH=$PATH:~/.composer/bin

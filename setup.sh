@@ -28,3 +28,10 @@ ln -s $GITDIR/gitconfig ~/.gitconfig
 
 rm ~/.gitignore
 ln -s $GITDIR/gitignore ~/.gitignore
+
+# SETUP COMPOSER
+
+mkdir -p ~/.composer/bin
+wget http://getcomposer.org/composer.phar
+mv composer.phar ~/.composer/bin/composer
+chmod +x ~/.composer/bin/composer
