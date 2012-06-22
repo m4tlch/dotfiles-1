@@ -16,7 +16,7 @@ set t_Co=256    " use 256 colors
 colorscheme jellybeans
 
 if has('gui_running')
-    set guifont=Monaco\ 16   " Mac OS X 10.5 default monospace font
+    set guifont=Monaco\ 12   " Mac OS X 10.5 default monospace font
 endif
 
 "
