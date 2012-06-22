@@ -29,9 +29,10 @@ ln -s $GITDIR/gitconfig ~/.gitconfig
 rm ~/.gitignore
 ln -s $GITDIR/gitignore ~/.gitignore
 
-# SETUP COMPOSER
+# SETUP LOCAL BINARIES
 
-mkdir -p ~/.composer/bin
-wget http://getcomposer.org/composer.phar
-mv composer.phar ~/.composer/bin/composer
-chmod +x ~/.composer/bin/composer
+sudo wget http://getcomposer.org/composer.phar -O /usr/local/bin/composer
+sudo chmod a+x /usr/local/bin/composer
+
+sudo wget http://cs.sensiolabs.org/get/php-cs-fixer.phar -O /usr/local/bin/php-cs-fixer
+sudo chmod a+x /usr/local/bin/php-cs-fixer
