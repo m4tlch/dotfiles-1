@@ -175,7 +175,6 @@ let g:Powerline_symbols = 'fancy'
 "
 " Ctags
 "
-
 " Explore tags for the word under the cursor
 map <C-l> <C-]>
 " Back to previous location after browsing tags
@@ -193,6 +192,8 @@ nnoremap <silent> <C-F7> :silent !ctags -h ".php" --PHP-kinds=+cf --recurse --ex
 let Tlist_Show_One_File = 1
 let Tlist_Sort_Type = "name"
 nnoremap <silent> <F7> :TlistToggle<CR>
+
+set tags+=vendor.tags
 
 "
 " Lusty
