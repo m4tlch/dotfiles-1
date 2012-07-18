@@ -35,3 +35,8 @@ alias sft="./app/console -e=test"
 alias sfb="./app/console -e=test behat"
 alias sfu="phpunit -c app"
 
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# Make the global menu for gvim work
+function gvim () { (/usr/bin/gvim -f "$@" &) }
