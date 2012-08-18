@@ -21,6 +21,13 @@ ln -s $BASHDIR/bashrc ~/.bashrc
 rm ~/.bash_profile
 ln -s $BASHDIR/bash_profile ~/.bash_profile
 
+# SETUP TMUX
+
+TMUXDIR=$BASEDIR/tmux
+
+rm ~/.tmux.conf
+ln -s $TMUXDIR/conf ~/.tmux.conf
+
 # SETUP GIT
 
 GITDIR=$BASEDIR/git

@@ -35,6 +35,7 @@ alias sft="./app/console -e=test"
 alias sfb="./app/console -e=test behat"
 alias sfu="phpunit -c app"
 
+[ -z "$TMUX" ] && export TERM=xterm-256color
 
 source ~/.rvm/scripts/rvm
 
