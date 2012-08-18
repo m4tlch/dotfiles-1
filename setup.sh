@@ -19,7 +19,7 @@ BASHDIR=$BASEDIR/bash
 rm ~/.bashrc
 ln -s $BASHDIR/bashrc ~/.bashrc
 rm ~/.bash_profile
-ln -s $BASEDIR/bashrc ~/.bash_profile
+ln -s $BASHDIR/bash_profile ~/.bash_profile
 
 # SETUP GIT
 
