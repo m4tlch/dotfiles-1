@@ -221,3 +221,12 @@ nmap <leader>a :Ack
 "
 
 let g:snips_author = 'Antoine Hérault <antoine.herault@gmail.com>'
+
+"
+" Syntastic
+"
+
+let g:syntastic_enable_signs = 1
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_quiet_warnings = 0
+let g:syntastic_enable_balloons = 1
