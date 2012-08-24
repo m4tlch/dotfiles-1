@@ -38,6 +38,13 @@ ln -s $GITDIR/gitconfig ~/.gitconfig
 rm ~/.gitignore
 ln -s $GITDIR/gitignore ~/.gitignore
 
+# SETUP RVM
+
+RVMDIR=$BASEDIR/rvm
+
+rm ~/.rvmrc
+ln -s $RVMDIR/rc ~/.rvmrc
+
 # SETUP LOCAL BINARIES
 
 sudo wget http://getcomposer.org/composer.phar -O /usr/local/bin/composer
