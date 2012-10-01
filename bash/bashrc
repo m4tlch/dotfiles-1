@@ -32,7 +32,7 @@ alias ll="ls -l"
 alias sf="./app/console"
 alias sfp="./app/console -e=prod"
 alias sft="./app/console -e=test"
-alias sfb="./app/console -e=test behat"
+alias sfb="./bin/behat"
 alias sfu="phpunit -c app"
 
 [ -z "$TMUX" ] && export TERM=xterm-256color

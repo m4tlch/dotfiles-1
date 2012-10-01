@@ -150,7 +150,7 @@ map! <F2> :call StripTrailingWhitespace()<CR>
 "
 
 " in insert mode (imap), some useful shortcuts.
-imap jj ->
+imap jj `
 imap kk \
 
 " TODO get rid of this specific config
