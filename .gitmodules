@@ -49,3 +49,21 @@
 [submodule "tmux/powerline"]
 	path = tmux/powerline
 	url = git://github.com/erikw/tmux-powerline.git
+[submodule "vim/bundle/ghcmod"]
+	path = vim/bundle/ghcmod
+	url = git://github.com/eagletmt/ghcmod-vim.git
+[submodule "vim/bundle/proc"]
+	path = vim/bundle/proc
+	url = git://github.com/Shougo/vimproc.git
+[submodule "vim/bundle/vim2hs"]
+	path = vim/bundle/vim2hs
+	url = git://github.com/dag/vim2hs.git
+[submodule "vim/bundle/hoogle"]
+	path = vim/bundle/hoogle
+	url = git://github.com/Twinside/vim-hoogle.git
+[submodule "vim/bundle/neco-ghc"]
+	path = vim/bundle/neco-ghc
+	url = git://github.com/ujihisa/neco-ghc.git
+[submodule "vim/bundle/neocomplcache"]
+	path = vim/bundle/neocomplcache
+	url = git://github.com/Shougo/neocomplcache.git
