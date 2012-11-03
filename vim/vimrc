@@ -163,8 +163,8 @@ set wildignore=data/**,app/cache/**,web/bundles/**
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 " Load bundles help & code
-silent! call pathogen#helptabs()
-silent! call pathogen#runtime_append_all_bundles()
+silent! call pathogen#infect()
+silent! call Helptags()
 
 "
 " Powerline
