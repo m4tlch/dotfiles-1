@@ -12,3 +12,8 @@
     co = checkout
     df = diff
     lg = log -p
+    all = add -A
+    amend = commit --amend
+
+[url "git@github.com:"]
+  insteadOf = gh:
