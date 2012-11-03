@@ -217,15 +217,6 @@ let g:ackprg = 'ack-grep -H --nocolor --nogroup --column --type-add html=twig --
 nmap <leader>a :Ack
 
 "
-" Snipmate
-"
-
-let g:snips_author = 'Antoine Hérault <antoine.herault@gmail.com>'
-
-ino <tab> <c-r>=TriggerSnippet()<cr>
-snor <tab> <esc>i<right><c-r>=TriggerSnippet()<cr>
-
-"
 " Syntastic
 "
 
@@ -240,6 +231,15 @@ let g:syntastic_enable_balloons = 1
 
 let g:neocomplcache_enable_at_startup = 1
 
+"
+" Vim2Hs
+"
+
+let g:hpaste_author = 'Herzult'
+let g:haskell_autotags = 0
+let g:haskell_tags_generator = 'fast-tags'
+
+"
 " UltiSnips
 "
 
