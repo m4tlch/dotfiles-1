@@ -1,0 +1,58 @@
+global !p
+
+def namespace(snip, path):
+	import os
+	namespace = pathToNamespace(path)
+	if (len(namespace) == 0):
+		return ''
+	return os.linesep + snip.mkline('namespace ' + namespace + ';') + os.linesep
+
+def pathToNamespace(path):
+	import re
+	path = path.replace('/', '\\')
+	path = re.sub(r'\b[^\\]*\Z', '', path)
+	path = path.strip('\\')
+	return re.sub(r'\A(\b[^A-Z][^\\]*\\)*', '', path)
+
+endglobal
+
+snippet class "Class file" !
+<?php
+`!p snip.rv = namespace(snip, path)`
+class `!p snip.rv = snip.basename`
+{
+	${0}
+}
+endsnippet
+
+snippet iface "Interface file" !
+<?php
+`!p snip.rv = namespace(snip, path)`
+class `!p snip.rv = snip.basename`
+{
+	${0}
+}
+endsnippet
+
+snippet trait "Trait file" !
+<?php
+`!p snip.rv = namespace(snip, path)`
+class `!p snip.rv = snip.basename`
+{
+	${0}
+}
+endsnippet
+
+snippet fun "Method"
+${1:public} function ${2:name}(${3})
+{
+	${0}
+}
+endsnippet
+
+snippet con "Constructor"
+public function __construct(${1})
+{
+	${0}
+}
+endsnippet

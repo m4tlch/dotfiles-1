@@ -222,6 +222,9 @@ nmap <leader>a :Ack
 
 let g:snips_author = 'Antoine Hérault <antoine.herault@gmail.com>'
 
+ino <tab> <c-r>=TriggerSnippet()<cr>
+snor <tab> <esc>i<right><c-r>=TriggerSnippet()<cr>
+
 "
 " Syntastic
 "
@@ -236,3 +239,10 @@ let g:syntastic_enable_balloons = 1
 "
 
 let g:neocomplcache_enable_at_startup = 1
+
+" UltiSnips
+"
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
