@@ -38,6 +38,13 @@ ln -s $GITDIR/gitconfig ~/.gitconfig
 rm ~/.gitignore
 ln -s $GITDIR/gitignore ~/.gitignore
 
+# SETUP SSH
+
+SSHDIR=$BASEDIR/ssh
+
+rm ~/.ssh
+ln -s $SSHDIR ~/.ssh
+
 # SETUP RVM
 
 RVMDIR=$BASEDIR/rvm

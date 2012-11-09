@@ -1,3 +1,5 @@
 vim/tmp/*
 !vim/tmp/.gitkeep
 vim/.netrwhist
+ssh/id_*
+ssh/known_hosts
