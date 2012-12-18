@@ -40,6 +40,10 @@ alias sfu="phpunit -c app"
 # Behat
 export MINK_EXTENSION_PARAMS='show_auto=true&show_cmd=xdg-open %s'
 
+function runhaskell-dev () {
+    runhaskell -package-conf=cabal-dev/`ls --color=none cabal-dev/ | grep packages-*.*.*.conf` $*
+}
+
 [ -z "$TMUX" ] && export TERM=xterm-256color
 
 source ~/.rvm/scripts/rvm
