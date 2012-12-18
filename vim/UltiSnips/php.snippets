@@ -28,7 +28,7 @@ endsnippet
 snippet iface "Interface file" !
 <?php
 `!p snip.rv = namespace(snip, path)`
-class `!p snip.rv = snip.basename`
+interface `!p snip.rv = snip.basename`
 {
 	${0}
 }
@@ -37,7 +37,7 @@ endsnippet
 snippet trait "Trait file" !
 <?php
 `!p snip.rv = namespace(snip, path)`
-class `!p snip.rv = snip.basename`
+trait `!p snip.rv = snip.basename`
 {
 	${0}
 }
