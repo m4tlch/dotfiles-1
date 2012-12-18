@@ -124,6 +124,9 @@ filetype indent on    " ... and indentation too
 " Use the htmljinja syntax for twig files
 au BufNewFile,BufRead *.twig set ft=htmljinja
 
+" Use the haskell filetype for hss files
+au BufNewFile,BufRead *.hsc set ft=haskell
+
 " Highlight trailing whitespaces
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
