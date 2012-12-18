@@ -52,3 +52,5 @@ source ~/.rvm/scripts/rvm
 function gvim () { (/usr/bin/gvim -f "$@" &) }
 
 PATH=$PATH:~/.cabal/bin
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
