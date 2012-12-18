@@ -37,8 +37,8 @@ alias sft="./app/console -e=test"
 alias sfb="./bin/behat"
 alias sfu="phpunit -c app"
 
-# Haskell aliases
-alias runhaskell-dev="runhaskell -package-conf=cabal-dev/packages-7.4.1.conf"
+# Behat
+export MINK_EXTENSION_PARAMS='show_auto=true&show_cmd=xdg-open %s'
 
 [ -z "$TMUX" ] && export TERM=xterm-256color
 
