@@ -1,10 +1,10 @@
 [user]
-	name = Antoine Hérault
-	email = antoine.herault@gmail.com
+    name = Antoine Hérault
+    email = antoine.herault@gmail.com
 [color]
-	ui = true
+    ui = true
 [core]
-	excludesfile = /home/antoine/.gitignore
+    excludesfile = /home/antoine/.gitignore
 [alias]
     st = status
     ci = commit
@@ -16,4 +16,6 @@
     amend = commit --amend
 
 [url "git@github.com:"]
-  insteadOf = gh:
+    insteadOf = gh:
+[push]
+    default = current
