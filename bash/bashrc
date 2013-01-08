@@ -37,6 +37,11 @@ alias sft="./app/console -e=test"
 alias sfb="./bin/behat"
 alias sfu="phpunit -c app"
 
+function sfa () {
+    ./app/console -e=dev $*
+    ./app/console -e=test $*
+}
+
 # Behat
 export MINK_EXTENSION_PARAMS='show_auto=true&show_cmd=xdg-open %s'
 
