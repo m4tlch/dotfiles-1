@@ -56,6 +56,10 @@ source ~/.rvm/scripts/rvm
 # Make the global menu for gvim work
 function gvim () { (/usr/bin/gvim -f "$@" &) }
 
+# Look for local binaries first
+PATH=./vendor/bin:$PATH
+PATH=./bin:$PATH
+
 PATH=$PATH:~/.cabal/bin
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
