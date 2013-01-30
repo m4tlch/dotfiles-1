@@ -170,12 +170,6 @@ silent! call pathogen#infect()
 silent! call Helptags()
 
 "
-" Powerline
-"
-"
-let g:Powerline_symbols = 'fancy'
-
-"
 " Ctags
 "
 " Explore tags for the word under the cursor
@@ -216,7 +210,15 @@ map <leader>t :CommandT<cr>
 " Ack
 "
 
-let g:ackprg = 'ack-grep -H --nocolor --nogroup --column --type-add html=twig --ignore-dir=cache --ignore-dir=logs'
+let g:ackprg = 'ack-grep
+            \ -H
+            \ --nocolor
+            \ --nogroup
+            \ --column
+            \ --type-add html=.twig
+            \ --type-add feature=.feature
+            \ --ignore-dir=cache
+            \ --ignore-dir=logs'
 nmap <leader>a :Ack
 
 "
@@ -249,3 +251,9 @@ let g:haskell_tags_generator = 'fast-tags'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+"
+" Powerline
+"
+
+python from powerline.bindings.vim import source_plugin; source_plugin()

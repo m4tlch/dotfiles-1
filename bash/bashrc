@@ -71,3 +71,7 @@ function ghc-pkg-clean() {
         echo unregistering $p; ghc-pkg $* unregister $p
     done
 }
+
+# Nexus 7
+alias android-connect="mtpfs -o allow_other /media/GalaxyNexus"
+alias android-disconnect="fusermount -u /media/GalaxyNexus"
