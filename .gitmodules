@@ -67,3 +67,6 @@
 [submodule "vim/bundle/phpspec"]
 	path = vim/bundle/phpspec
 	url = git://github.com/Herzult/phpspec-vim.git
+[submodule "vim/bundle/puppet-syntax"]
+	path = vim/bundle/puppet-syntax
+	url = git://github.com/puppetlabs/puppet-syntax-vim.git
