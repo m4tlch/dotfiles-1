@@ -1,2 +1,2 @@
-imap <buffer> <F5> <C-O>:call PhpInsertUse()<CR>
-map <buffer> <F5> :call PhpInsertUse()<CR>
+map <buffer> ns :call PhpInsertUse()<CR>
+map <buffer> nS :call PhpExpandClass()<CR>
