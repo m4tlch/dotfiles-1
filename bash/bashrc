@@ -63,6 +63,7 @@ PATH=./bin:$PATH
 PATH=$PATH:~/.cabal/bin
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.local/bin
 
 # Unregisters GHC broken packages
 function ghc-pkg-clean() {
