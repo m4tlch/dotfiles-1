@@ -45,6 +45,10 @@ SSHDIR=$BASEDIR/ssh
 rm ~/.ssh
 ln -s $SSHDIR ~/.ssh
 
+# SETUP XDEFAULTS
+rm ~/.Xdefaults
+ln -s $BASEDIR/Xdefaults
+
 # SETUP RVM
 
 RVMDIR=$BASEDIR/rvm
