@@ -55,16 +55,3 @@ set -g status-right '%Y-%m-%d | %H:%M '
 # status bar options
 set-option -g status-justify centre                       # alignment of windows
 set-window-option -g window-status-format ' #W '          # Inactive windows in status bar
-
-#------------------------------------------------------------------------------
-#   POWERLINE
-#------------------------------------------------------------------------------
-
-set-option -g status on
-set-option -g status-interval 2
-set-option -g status-utf8 on
-set-option -g status-justify "centre"
-set-option -g status-left-length 90
-set-option -g status-right-length 90
-set-option -g status-left "#(~/.dotfiles/tmux/status-left.sh)"
-set-option -g status-right "#(~/.dotfiles/tmux/status-right.sh)"
