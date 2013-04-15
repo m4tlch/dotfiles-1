@@ -256,4 +256,4 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " Powerline
 "
 
-python from powerline.bindings.vim import source_plugin; source_plugin()
+set rtp+=/home/antoine/.local/lib/python2.7/site-packages/powerline/bindings/vim
