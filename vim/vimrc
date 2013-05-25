@@ -158,6 +158,9 @@ Bundle 'arnaud-lb/vim-php-namespace'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'Lokaltog/vim-distinguished.git'
 Bundle 'Valloric/YouCompleteMe.git'
+Bundle 'terryma/vim-multiple-cursors.git'
+Bundle 'docteurklein/vim-symfony.git'
+Bundle 'kana/vim-smartinput.git'
 
 filetype plugin indent on
 
@@ -181,7 +184,15 @@ nnoremap <C-x> :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen=1
 
 " PHP namespace
-nnoremap <C-u>:call PhpInsertUse()<CR>
+inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
+noremap <Leader>u :call PhpInsertUse()<CR>
 
 " YCM configuration
 set completeopt=menuone
+
+" MultiCursor configuration
+let g:multi_cursor_start_key='<C-d>'
+
+" vim-symfony configuration
+let g:symfony_app_console_caller= "php"
+let g:symfony_app_console_path= "app/console"
