@@ -5,3 +5,4 @@ PS1="\[\033[1;32m\]\u\[\033[00m\][\[\033[1;34m\]\w\[\033[00m\]]\$ "
 alias sf="./app/console"
 alias phpspec="./bin/phpspec"
 alias behat="./bin/behat"
+alias tmux='tmux -2'

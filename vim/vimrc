@@ -11,8 +11,7 @@ set directory=~/.vim/tmp        " Directory to put swap file
 "
 " Coloration
 "
-
-set t_Co=256    " use 256 colors
+set t_Co=256
 colorscheme molokai
 
 " higlight the cursor line
@@ -125,7 +124,7 @@ set encoding=utf-8
 "
 
 syntax enable                       " Enable syntax highlighting
-filetype on           " enable file type detection
+filetype off          " enable file type detection
 filetype plugin on    " load plugins specific to file type
 filetype indent on    " ... and indentation too
 
@@ -166,3 +165,12 @@ imap kk \
 
 " TODO get rid of this specific config
 set wildignore=data/**,app/cache/**,web/bundles/**
+
+"
+" Vundle configuration
+"
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+" Let vundle manage the vundle
+Bundle 'gmarik/vundle'
