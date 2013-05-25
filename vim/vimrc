@@ -155,9 +155,9 @@ Bundle 'The-NERD-tree'
 Bundle 'ctrlp.vim'
 Bundle 'UltiSnips'
 Bundle 'arnaud-lb/vim-php-namespace'
-
 Bundle 'airblade/vim-gitgutter'
 Bundle 'Lokaltog/vim-distinguished.git'
+Bundle 'Valloric/YouCompleteMe.git'
 
 filetype plugin indent on
 
@@ -179,3 +179,9 @@ nnoremap <C-x> :NERDTreeToggle<CR>
 
 " Configure NERDTree
 let NERDTreeQuitOnOpen=1
+
+" PHP namespace
+nnoremap <C-u>:call PhpInsertUse()<CR>
+
+" YCM configuration
+set completeopt=menuone
