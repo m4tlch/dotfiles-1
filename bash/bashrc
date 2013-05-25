@@ -1,74 +1,7 @@
-prompt() {
-    last_status="$?"
-    color_base="\[\e[0m\]"
-    color_red_bold="\[\e[1;31m\]"
-    color_green_bold="\[\e[1;32m\]"
-    color_yellow_light="\[\e[0;33m\]"
-    git_branch=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+# personalised the PS1
+PS1="\[\033[1;32m\]\u\[\033[00m\][\[\033[1;34m\]\w\[\033[00m\]]\$ "
 
-    if [ $last_status -eq "0" ]
-    then
-        smiley="${color_green_bold} ☺${color_base} "
-    else
-        smiley="${color_red_bold} ☹ [$last_status]${color_base}"
-    fi
-
-    if [ -z "$git_branch" ]
-    then
-        git="";
-    else
-        git=" (${color_yellow_light}${git_branch}${color_base})"
-    fi
-
-    PS1="${smiley}${git} \$ "
-
-    PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
-}
-
-PROMPT_COMMAND=prompt
-
-alias ls="ls --color"
-alias ll="ls -l"
-
-# Symfony aliases
+# defined alias
 alias sf="./app/console"
-alias sfp="./app/console -e=prod"
-alias sft="./app/console -e=test"
-alias sfb="./bin/behat"
-alias sfu="phpunit -c app"
-
-function sfa () {
-    ./app/console -e=dev $*
-    ./app/console -e=test $*
-}
-
-# Behat
-export MINK_EXTENSION_PARAMS='show_auto=true&show_cmd=xdg-open %s'
-
-function runhaskell-dev () {
-    runhaskell -package-conf=cabal-dev/`ls --color=none cabal-dev/ | grep packages-*.*.*.conf` $*
-}
-
-[ -z "$TMUX" ] && export TERM=xterm-256color
-
-source ~/.rvm/scripts/rvm
-
-# Make the global menu for gvim work
-function gvim () { (/usr/bin/gvim -f "$@" &) }
-
-# Look for local binaries first
-PATH=./vendor/bin:$PATH
-PATH=./bin:$PATH
-
-PATH=$PATH:~/.cabal/bin
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-PATH=$PATH:$HOME/.local/bin
-
-# Unregisters GHC broken packages
-function ghc-pkg-clean() {
-    for p in `ghc-pkg check $* 2>&1  | grep problems | awk '{print $6}' | sed -e 's/:$//'`
-    do
-        echo unregistering $p; ghc-pkg $* unregister $p
-    done
-}
+alias phpspec="./bin/phpspec"
+alias behat="./bin/behat"
