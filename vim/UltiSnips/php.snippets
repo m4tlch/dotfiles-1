@@ -1,0 +1,80 @@
+snippet pcl "Display a class" !b
+<?php
+
+namespace ${1:namespace};
+
+class ${2:Class} ${3:otherStuf...}
+{
+    ${0://implementation ...}
+}
+endsnippet
+
+snippet fun "A simple function snippet" !b
+${1:public} function ${2:name}(${3:\$value})
+{
+    ${0://some code here ...}
+}
+endsnippet
+
+snippet attr "Display an attribute" !b
+${1:public} \$${2:value};
+endsnippet
+
+snippet use "Use statement" !b
+use ${1:Class};
+endsnippet
+
+snippet getset "Generate getter and setter" !b
+/**
+ * Get $1
+ *
+ * @return ${2:string}
+ */
+public function get${1/(.*)/\u$1/}()
+{
+    return \$this->$1;
+}
+
+/**
+ * Set ${1:var}
+ *
+ * @param ${2:string} \$$1
+ * @return ${3:ClassName}
+ */
+public function set${1/(.*)/\u$1/}(\$$1)
+{
+    \$this->$1 = \$$1;
+
+    return \$this;
+}
+endsnippet
+
+snippet docattr "Generate doctrine attribute" !b
+/**
+ * @var string \$${1:name}
+ * @ORM\Column(name="${2:column_name}", type="${3:string}")
+ */
+private \${1:name};
+endsnippet
+
+snippet ormcl "Generate a dotrine ORM class" !b
+<?php
+
+namespace ${1:App\Entity};
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="${2:table_name}")
+ */
+class ${2:ClassName}
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private \$id;
+}
+endsnippet

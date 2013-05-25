@@ -48,6 +48,7 @@ set notitle                         " Don't show title in console title bar
 set novisualbell                    " Don't use the visual bell
 set wrap                            " Wrap lineource $MYVIMRC
 set showmatch                       " Show matching (){}[]
+set clipboard+=unnamed              " Allow to cp/p from clipboard
 
 " Search options
 set incsearch
@@ -77,16 +78,6 @@ nmap <leader>r :redraw!<cr>
 
 " Clear search highlight
 nmap <silent> <leader>/ :let @/=""<cr>
-
-" Change cursor color depending on the mode
-if &term =~ "xterm"
-    let &t_SI = "\<Esc>]12;orange\x7"
-    let &t_EI = "\<Esc>]12;white\x7"
-endif
-
-" Change statusbar color depending on the mode
-au InsertEnter * hi StatusLine ctermfg=226 ctermbg=16
-au InsertLeave * hi StatusLine ctermfg=7 ctermfg=0
 
 "
 " Command line
@@ -125,22 +116,12 @@ set encoding=utf-8
 
 syntax enable                       " Enable syntax highlighting
 filetype off          " enable file type detection
-filetype plugin on    " load plugins specific to file type
-filetype indent on    " ... and indentation too
 
 " Use the htmljinja syntax for twig files
 au BufNewFile,BufRead *.twig set ft=htmljinja
 
 " Use the haskell filetype for hss files
 au BufNewFile,BufRead *.hsc set ft=haskell
-
-" Highlight trailing whitespaces
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
 
 " automatically remove trailing whitespace before write
 function! StripTrailingWhitespace()
@@ -174,3 +155,17 @@ call vundle#rc()
 
 " Let vundle manage the vundle
 Bundle 'gmarik/vundle'
+
+Bundle 'The-NERD-tree'
+Bundle 'ctrlp.vim'
+Bundle 'UltiSnips'
+Bundle 'arnaud-lb/vim-php-namespace'
+
+filetype plugin indent on
+
+"
+" UltiSnips comportment
+"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"

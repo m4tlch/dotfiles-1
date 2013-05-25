@@ -4,3 +4,4 @@ vim/.netrwhist
 ssh/id_*
 ssh/known_hosts
 vim/bundle/*
+test/
