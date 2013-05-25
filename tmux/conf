@@ -1,1 +1,38 @@
 set-option -g default-terminal screen-256color
+
+# rebind default keys
+set -g prefix M-a
+unbind C-b
+bind M-a send-prefix
+
+# split window
+bind v split-window -h
+bind s split-window -v
+
+# reload tmux conf
+bind-key r source-file ~/.tmux.conf \; display "Config reloaded"
+
+# change status bar settings
+set-option -g status on
+set-option -g status-interval 2
+set-option -g status-utf8 on
+set-option -g status-attr default
+
+# default window
+set-window-option -g window-status-fg colour15
+set-window-option -g window-status-bg colour18
+
+# message box
+set-option -g message-bg colour22
+set-option -g message-fg colour15
+
+# current active window
+set-window-option -g window-status-current-fg white
+set-window-option -g window-status-current-bg colour88
+
+# window split border
+set-option -g display-panes-active-colour colour19 #blue
+set-option -g display-panes-colour colour8 #orange
+
+set -g status-bg black
+set -g status-fg white

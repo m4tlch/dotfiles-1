@@ -8,11 +8,6 @@ set history=1000                " Increase history
 set nobackup                    " Do not backup files on overwrite
 set directory=~/.vim/tmp        " Directory to put swap file
 
-"
-" Coloration
-"
-set t_Co=256
-colorscheme molokai
 
 " higlight the cursor line
 set cursorline
@@ -161,6 +156,9 @@ Bundle 'ctrlp.vim'
 Bundle 'UltiSnips'
 Bundle 'arnaud-lb/vim-php-namespace'
 
+Bundle 'airblade/vim-gitgutter'
+Bundle 'Lokaltog/vim-distinguished.git'
+
 filetype plugin indent on
 
 "
@@ -169,3 +167,15 @@ filetype plugin indent on
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+"
+" Coloration
+"
+set t_Co=256
+colorscheme molokai
+
+" Add some keys map
+nnoremap <C-x> :NERDTreeToggle<CR>
+
+" Configure NERDTree
+let NERDTreeQuitOnOpen=1

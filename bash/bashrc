@@ -6,3 +6,4 @@ alias sf="./app/console"
 alias phpspec="./bin/phpspec"
 alias behat="./bin/behat"
 alias tmux='tmux -2'
+alias g="git"
