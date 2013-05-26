@@ -180,15 +180,9 @@ colorscheme molokai
 " Add some keys map
 nnoremap <C-x> :NERDTreeToggle<CR>
 
-" Configure NERDTree
-let NERDTreeQuitOnOpen=1
-
 " PHP namespace
 inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
 noremap <Leader>u :call PhpInsertUse()<CR>
-
-" YCM configuration
-set completeopt=menuone
 
 " MultiCursor configuration
 let g:multi_cursor_start_key='<C-d>'
