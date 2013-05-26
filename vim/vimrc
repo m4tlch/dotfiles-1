@@ -157,10 +157,10 @@ Bundle 'UltiSnips'
 Bundle 'arnaud-lb/vim-php-namespace'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'Lokaltog/vim-distinguished.git'
-Bundle 'Valloric/YouCompleteMe.git'
 Bundle 'terryma/vim-multiple-cursors.git'
 Bundle 'docteurklein/vim-symfony.git'
 Bundle 'kana/vim-smartinput.git'
+Bundle 'lunaru/vim-less'
 
 filetype plugin indent on
 
