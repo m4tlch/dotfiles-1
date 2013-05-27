@@ -184,6 +184,9 @@ nnoremap <C-x> :NERDTreeToggle<CR>
 inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
 noremap <Leader>u :call PhpInsertUse()<CR>
 
+" ctrlp configuration
+let g:ctrlp_working_path_mode = 0
+
 " MultiCursor configuration
 let g:multi_cursor_start_key='<C-d>'
 
