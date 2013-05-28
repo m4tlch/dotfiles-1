@@ -9,6 +9,12 @@ bind M-a send-prefix
 bind v split-window -h
 bind s split-window -v
 
+# hjkl pane traversal
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
 # reload tmux conf
 bind-key r source-file ~/.tmux.conf \; display "Config reloaded"
 

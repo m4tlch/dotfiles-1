@@ -78,3 +78,44 @@ class ${2:ClassName}
     private \$id;
 }
 endsnippet
+
+snippet author "Generate an author doc" !b
+@author David Jegat <david.jegat@gmail.com>
+endsnippet
+
+snippet gearsfile "Generate a corect gears head file" !b
+/*
+ * This file is litle piece of GearsAdminBundle Package.
+ *
+ * (c) david jegat <david.jegat@gmail.com>
+ *
+ * This code is under the MIT licence. For the full copyright and
+ * licence please read the LICENSE file distributed with this package.
+ */
+
+endsnippet
+
+snippet docl "Generate a class with docstrings" !b
+/**
+ * ${1:description}
+ *
+ * @author David Jegat <david.jegat@gmail.com>
+ */
+class ${2:ClassName} ${3:otherStuff}
+{
+    ${0:// implementation ...}
+}
+endsnippet
+
+snippet docfun "Generate function with a corect docstring" !b
+/**
+ * ${4:description ....}
+ * 
+ * @param ${5:params}
+ * @return ${6:return}
+ */
+${1:public} function ${2:name}(${3:\$value})
+{
+    ${0://some code here ...}
+}
+endsnippet

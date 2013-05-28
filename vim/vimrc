@@ -180,6 +180,9 @@ colorscheme molokai
 " Add some keys map
 nnoremap <C-x> :NERDTreeToggle<CR>
 
+" configure NERDTree
+set modifiable
+
 " PHP namespace
 inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
 noremap <Leader>u :call PhpInsertUse()<CR>
