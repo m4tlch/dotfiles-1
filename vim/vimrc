@@ -161,6 +161,8 @@ Bundle 'terryma/vim-multiple-cursors.git'
 Bundle 'docteurklein/vim-symfony.git'
 Bundle 'kana/vim-smartinput.git'
 Bundle 'lunaru/vim-less'
+Bundle 'Lokaltog/vim-powerline.git'
+Bundle 'Shougo/neocomplcache.vim.git'
 
 filetype plugin indent on
 
@@ -175,7 +177,7 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " Coloration
 "
 set t_Co=256
-colorscheme molokai
+colorscheme molokai 
 
 " Add some keys map
 nnoremap <C-x> :NERDTreeToggle<CR>
@@ -196,3 +198,6 @@ let g:multi_cursor_start_key='<C-d>'
 " vim-symfony configuration
 let g:symfony_app_console_caller= "php"
 let g:symfony_app_console_path= "app/console"
+
+" neocomplcache
+let g:neocomplcache_enable_at_startup = 1
