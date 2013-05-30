@@ -39,4 +39,12 @@ ln -s $GITDIR/gitconfig ~/.gitconfig
 rm ~/.gitignore
 ln -s $GITDIR/gitignore ~/.gitignore
 
+# POWERLINE
 
+POWERLINEDIR=$BASEDIR/tmux-powerline
+
+rm ~/tmux-powerline
+ln -s $POWERLINEDIR ~/.tmux-powerline 
+
+echo "launch vim and install bundle with :BundleInstall\n"
+echo "You will run patch-font.sh just afte\nr"
