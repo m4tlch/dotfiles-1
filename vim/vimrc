@@ -162,7 +162,6 @@ Bundle 'docteurklein/vim-symfony.git'
 Bundle 'kana/vim-smartinput.git'
 Bundle 'lunaru/vim-less'
 Bundle 'Lokaltog/vim-powerline.git'
-Bundle 'Shougo/neocomplcache.vim.git'
 
 filetype plugin indent on
 
