@@ -119,3 +119,19 @@ ${1:public} function ${2:name}(${3:\$value})
     ${0://some code here ...}
 }
 endsnippet
+
+snippet speccl "Generate a phpspec class" !b
+<?php
+
+namespace spec\${1:Namespace};
+
+use PhpSpec\ObjectBehavior;
+
+class ${2:ClassName} extends ObjectBehavior
+{
+   function it_should_be_initializable()
+   {
+        \$this->shouldHaveType('${1:Namespace}\${2ClassName}');    
+   }
+}
+endsnippet
