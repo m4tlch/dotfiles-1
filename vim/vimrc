@@ -135,6 +135,9 @@ map! <F2> :call StripTrailingWhitespace()<CR>
 " Some sugar on my Keyboard
 "
 
+" Easy switch between mode
+map! ii <Esc>
+
 " in insert mode (imap), some useful shortcuts.
 imap jj `
 imap kk \
