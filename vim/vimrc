@@ -165,6 +165,7 @@ Bundle 'docteurklein/vim-symfony.git'
 Bundle 'kana/vim-smartinput.git'
 Bundle 'lunaru/vim-less'
 Bundle 'Lokaltog/vim-powerline.git'
+Bundle 'godlygeek/tabular.git'
 
 filetype plugin indent on
 
