@@ -9,11 +9,37 @@ class ${2:Class} ${3:otherStuf...}
 }
 endsnippet
 
+snippet pacl "Display abstract class" !b
+<?php
+
+namespace ${1:namespace};
+
+abstract class Abstract${2:Class} ${3:otherStuff ...}
+{
+    ${0://implementation ...}
+}
+endsnippet
+
+snippet pint "Generate an interface skeleton" !b
+<?php
+
+namespace ${1:namespace};
+
+interface ${2:Class}Interface ${3:extends}
+{
+    ${0://implementation ...}
+}
+endsnippet
+
 snippet fun "A simple function snippet" !b
 ${1:public} function ${2:name}(${3:\$value})
 {
     ${0://some code here ...}
 }
+endsnippet
+
+snippet funi "Add a simple mehod signature" !b
+public function ${1:name}(${3:\$args});
 endsnippet
 
 snippet attr "Display an attribute" !b
