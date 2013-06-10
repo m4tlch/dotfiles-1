@@ -47,4 +47,4 @@ rm ~/tmux-powerline
 ln -s $POWERLINEDIR ~/.tmux-powerline 
 
 echo "launch vim and install bundle with :BundleInstall\n"
-echo "You will run patch-font.sh just afte\nr"
+echo "You will run patch-font.sh just after\n"
