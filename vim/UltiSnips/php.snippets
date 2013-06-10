@@ -130,10 +130,10 @@ endsnippet
 
 snippet docattr "Generate doctrine attribute" !b
 /**
- * @var string \$${1:name}
- * @ORM\Column(name="${2:column_name}", type="${3:string}")
+ * @var ${1:Type} \$$2
+ * @ORM\\${3:Column()}
  */
-private \$${1:name};
+private \$${2:name};
 endsnippet
 
 snippet ormcl "Generate a dotrine ORM class" !b
@@ -157,6 +157,30 @@ class `!p snip.rv = snip.basename` $2
     private \$id;
 
     $0
+}
+endsnippet
+
+snippet ormrepo "Generate a doctrine repository" !b
+<?php
+
+`!p snip.rv = namespace(snip, path)`
+
+use Doctrine\ORM\EntityRepository;
+
+class `!p snip.rv = snip.basename` extends EntityRepository
+{
+}
+endsnippet
+
+snippet radrepo "Generate a RabBundle repository" !b
+<?php
+
+`!p snip.rv = namespace(snip, path)`
+
+use Knp\RadBundle\Doctrine\EntityRepository;
+
+class `!p snip.rv = snip.basename` extends EntityRepository
+{
 }
 endsnippet
 
