@@ -1,31 +1,49 @@
-snippet pcl "Display a class" !b
+global !p
+
+def namespace(snip, path):
+	import os
+	namespace = pathToNamespace(path)
+	if (len(namespace) == 0):
+		return ''
+	return os.linesep + snip.mkline('namespace ' + namespace + ';') + os.linesep
+
+def pathToNamespace(path):
+	import re
+	path = path.replace('/', '\\')
+	path = re.sub(r'\b[^\\]*\Z', '', path)
+	path = path.strip('\\')
+	return re.sub(r'\A(\b[^A-Z][^\\]*\\)*', '', path)
+
+endglobal
+
+snippet cl "Display a class" !b
 <?php
 
-namespace ${1:namespace};
+`!p snip.rv = namespace(snip, path)`
 
-class ${2:Class} ${3:otherStuf...}
+class `!p snip.rv = snip.basename` $1
 {
     ${0://implementation ...}
 }
 endsnippet
 
-snippet pacl "Display abstract class" !b
+snippet acl "Display abstract class" !b
 <?php
 
-namespace ${1:namespace};
+`!p snip.rv = namespace(snip, path)`
 
-abstract class Abstract${2:Class} ${3:otherStuff ...}
+abstract class `!p snip.rv = snip.basename` $1
 {
     ${0://implementation ...}
 }
 endsnippet
 
-snippet pint "Generate an interface skeleton" !b
+snippet it "Generate an interface skeleton" !b
 <?php
 
-namespace ${1:namespace};
+`!p snip.rv = namespace(snip, path)`
 
-interface ${2:Class}Interface ${3:extends}
+interface `!p snip.rv = snip.basename` $1
 {
     ${0://implementation ...}
 }
@@ -121,15 +139,15 @@ endsnippet
 snippet ormcl "Generate a dotrine ORM class" !b
 <?php
 
-namespace ${1:App\Entity};
+`!p snip.rv = namespace(snip, path)`
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="${2:table_name}")
+ * @ORM\Table(name="$1")
  */
-class ${3:ClassName}
+class `!p snip.rv = snip.basename` $2
 {
     /**
      * @ORM\Id
@@ -158,31 +176,6 @@ snippet gearsfile "Generate a corect gears head file" !b
 
 endsnippet
 
-snippet docl "Generate a class with docstrings" !b
-/**
- * ${1:description}
- *
- * @author David Jegat <david.jegat@gmail.com>
- */
-class ${2:ClassName} ${3:otherStuff}
-{
-    ${0:// implementation ...}
-}
-endsnippet
-
-snippet docfun "Generate function with a corect docstring" !b
-/**
- * ${4:description ....}
- * 
- * @param ${5:params}
- * @return ${6:return}
- */
-${1:public} function ${2:name}(${3:\$value})
-{
-    ${0://some code here ...}
-}
-endsnippet
-
 snippet speccl "Generate a phpspec class" !b
 <?php
 
@@ -201,4 +194,8 @@ endsnippet
 
 snippet dd "Die and dump a variable" !b
 die(var_dump(\$${1:var}));
+endsnippet
+
+snippet th "this" !b
+\$this->$0
 endsnippet
