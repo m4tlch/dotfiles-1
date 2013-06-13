@@ -75,10 +75,6 @@ if has("autocmd")
   au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape ibeam"
 endif
 
-" change color of status line in insert mode
-autocmd InsertEnter * hi LineNr      ctermfg=16 ctermbg=39 guifg=Orange guibg=#8097FF
-autocmd InsertLeave * hi LineNr      term=underline ctermfg=59 ctermbg=232 guifg=#605958 guibg=#151515
-
 " Redraw screen
 nmap <leader>r :redraw!<cr>
 
