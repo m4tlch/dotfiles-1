@@ -197,6 +197,7 @@ colorscheme molokai
 nnoremap <C-x> :NERDTreeToggle<CR>
 vnoremap <Leader>: :Tabularize /:<CR>
 vnoremap <Leader>= :Tabularize /=<CR>
+vnoremap <Leader>> :Tabularize /=><CR>
 
 " configure NERDTree
 set modifiable
