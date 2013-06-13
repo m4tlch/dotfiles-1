@@ -18,9 +18,7 @@ endglobal
 
 snippet cl "Display a class" !b
 <?php
-
 `!p snip.rv = namespace(snip, path)`
-
 class `!p snip.rv = snip.basename` $1
 {
     ${0://implementation ...}
@@ -29,9 +27,7 @@ endsnippet
 
 snippet acl "Display abstract class" !b
 <?php
-
 `!p snip.rv = namespace(snip, path)`
-
 abstract class `!p snip.rv = snip.basename` $1
 {
     ${0://implementation ...}
@@ -40,9 +36,7 @@ endsnippet
 
 snippet it "Generate an interface skeleton" !b
 <?php
-
 `!p snip.rv = namespace(snip, path)`
-
 interface `!p snip.rv = snip.basename` $1
 {
     ${0://implementation ...}
@@ -138,9 +132,7 @@ endsnippet
 
 snippet ormcl "Generate a dotrine ORM class" !b
 <?php
-
 `!p snip.rv = namespace(snip, path)`
-
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -162,9 +154,7 @@ endsnippet
 
 snippet ormrepo "Generate a doctrine repository" !b
 <?php
-
 `!p snip.rv = namespace(snip, path)`
-
 use Doctrine\ORM\EntityRepository;
 
 class `!p snip.rv = snip.basename` extends EntityRepository
@@ -174,9 +164,7 @@ endsnippet
 
 snippet radrepo "Generate a RabBundle repository" !b
 <?php
-
 `!p snip.rv = namespace(snip, path)`
-
 use Knp\RadBundle\Doctrine\EntityRepository;
 
 class `!p snip.rv = snip.basename` extends EntityRepository
