@@ -175,6 +175,7 @@ Bundle 'lunaru/vim-less'
 Bundle 'hail2u/vim-css3-syntax.git'
 Bundle 'Lokaltog/vim-powerline.git'
 Bundle 'godlygeek/tabular.git'
+Bundle 'vim-scripts/HTML-AutoCloseTag.git'
 
 filetype plugin indent on
 
@@ -198,6 +199,7 @@ nnoremap <C-x> :NERDTreeToggle<CR>
 vnoremap <Leader>: :Tabularize /:<CR>
 vnoremap <Leader>= :Tabularize /=<CR>
 vnoremap <Leader>> :Tabularize /=><CR>
+nnoremap <Leader>t :!ctags -R --PHP-kinds=+cf<CR>
 
 " configure NERDTree
 set modifiable
