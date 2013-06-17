@@ -175,7 +175,6 @@ Bundle 'lunaru/vim-less'
 Bundle 'hail2u/vim-css3-syntax.git'
 Bundle 'Lokaltog/vim-powerline.git'
 Bundle 'godlygeek/tabular.git'
-Bundle 'vim-scripts/HTML-AutoCloseTag.git'
 
 filetype plugin indent on
 
