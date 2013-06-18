@@ -1,7 +1,6 @@
 "
 " General behavior
 "
-set mouse=a                     " Activate the mouse
 set nocompatible                " Use vim defaults
 let mapleader=","               " Use the comma as leader
 set history=1000                " Increase history
@@ -200,6 +199,16 @@ vnoremap <Leader>: :Tabularize /:<CR>
 vnoremap <Leader>= :Tabularize /=<CR>
 vnoremap <Leader>> :Tabularize /=><CR>
 nnoremap <Leader>t :!ctags -R --PHP-kinds=+cf<CR>
+nnoremap <Leader>v :source ~/.vimrc<CR>
+" easy navigation between words
+nmap <C-l> w
+nmap <C-h> b
+nmap r <C-r>
+" easy select all
+nmap <Leader>a gg<S-v><S-g><CR>
+" esay copy-paste clipboard
+vmap <Leader>y "+y<CR>
+nmap <leader>p "+p<CR>
 
 " configure NERDTree
 set modifiable
