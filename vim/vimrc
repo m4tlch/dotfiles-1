@@ -192,6 +192,12 @@ let g:Powerline_symbols = 'fancy'
 set t_Co=256
 colorscheme molokai 
 
+" force to never use arrow for navigation !
+nmap <Up> <nop>
+nmap <Down> <nop>
+nmap <Left> <nop>
+nmap <Right> <nop>
+
 " Add some keys map
 nnoremap <C-x> :NERDTreeToggle<CR>
 vnoremap <Leader>: :Tabularize /:<CR>
