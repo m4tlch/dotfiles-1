@@ -174,8 +174,16 @@ Bundle 'hail2u/vim-css3-syntax.git'
 Bundle 'Lokaltog/vim-powerline.git'
 Bundle 'godlygeek/tabular.git'
 Bundle 'tpope/vim-fugitive.git'
+Bundle 'sjbach/lusty.git'
 
 filetype plugin indent on
+
+"
+" Ctrlp wildignore
+"
+let g:ctrlp_custom_ignore ={
+    \ 'dir': 'app/cache',
+    \}
 
 "
 " UltiSnips comportment
