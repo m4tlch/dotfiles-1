@@ -182,7 +182,7 @@ endsnippet
 
 snippet gearsfile "Generate a corect gears head file" !b
 /*
- * This file is litle piece of GearsAdminBundle Package.
+ * This file is litle piece of ${1:Bundle} 
  *
  * (c) david jegat <david.jegat@gmail.com>
  *
@@ -192,19 +192,19 @@ snippet gearsfile "Generate a corect gears head file" !b
 
 endsnippet
 
-snippet speccl "Generate a phpspec class" !b
+snippet spec "Generate a phpspec class" !b
 <?php
 
-namespace spec\${1:Namespace};
+namespace spec\\${1:Namespace};
 
 use PhpSpec\ObjectBehavior;
 
-class ${2:ClassName} extends ObjectBehavior
+class ${2:ClassName}Spec extends ObjectBehavior
 {
-   function it_should_be_initializable()
-   {
-        \$this->shouldHaveType('${1:Namespace}\${2:ClassName}');    
-   }
+    function it_should_be_initializable()
+    {
+         \$this->shouldHaveType('$1\\$2');    
+    }
 }
 endsnippet
 

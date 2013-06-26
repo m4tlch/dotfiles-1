@@ -4,6 +4,7 @@ PS1='\[\033[1;32m\]\u\[\033[00m\][\[\033[1;34m\]\W\[\033[00m\]]$(__git_ps1 "(\[\
 # defined alias
 alias sf="./app/console"
 alias phpspec="./bin/phpspec"
+alias spec="./bin/phpspec --format=nyan"
 alias behat="./bin/behat"
 alias tmux='tmux -2'
 alias g="git"

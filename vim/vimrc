@@ -6,7 +6,7 @@ let mapleader=","               " Use the comma as leader
 set history=1000                " Increase history
 set nobackup                    " Do not backup files on overwrite
 set directory=~/.vim/tmp        " Directory to put swap file
-set colorcolumn=80
+set colorcolumn=86
 
 " higlight the cursor line
 set cursorline
@@ -239,6 +239,8 @@ set modifiable
 " PHP namespace
 inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
 noremap <Leader>u :call PhpInsertUse()<CR>
+inoremap <Leader>e <C-O>:call PhpExpandClass()<CR>
+noremap <Leader>e :call PhpExpandClass()<CR>
 
 
 " ctrlp configuration
