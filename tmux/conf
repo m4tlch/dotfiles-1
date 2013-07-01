@@ -18,15 +18,25 @@ bind l select-pane -R
 # reload tmux conf
 bind-key r source-file ~/.tmux.conf \; display "Config reloaded"
 
-# powerline tmux
-set-option -g status on
-set-option -g status-interval 2
-set-option -g status-utf8 on
-set-option -g status-justify "centre"
-set-option -g status-left-length 60
-set-option -g status-right-length 90
-set-option -g status-left "#(~/.tmux-powerline/powerline.sh left)"
-set-option -g status-right "#(~/.tmux-powerline/powerline.sh right)"
+set -g status-fg colour250
+set -g status-bg colour233
 
-set -g status-bg black
-set -g status-fg white
+# left side of status bar
+set -g status-left-length 30
+set -g status-left '#[fg=colour250,bg=colour24,bold]😎  #W #[fg=colour24,bg=colour233,nobold]⮀'
+
+# right side of status bar
+set -g status-right-length 30
+set -g status-right '#[fg=colour24,bg=colour233,nobold]⮂#[fg=colour250,bg=colour24,bold] %Y-%m-%d - %H:%M'
+
+# status bar options
+set-option -g status-justify centre         # alignment of windows
+set -g window-status-format ' #W '          # Inactive windows in status bar
+set -g window-status-current-format '#[fg=colour250,bg=colour24,bold] ☺  #W  '
+
+# message bar
+set -g message-fg colour250
+set -g message-bg colour24
+set -g message-attr bold
+set -g pane-border-fg colour233
+set -g pane-active-border-fg colour24

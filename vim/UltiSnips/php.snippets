@@ -50,6 +50,13 @@ ${1:public} function ${2:name}(${3:\$value})
 }
 endsnippet
 
+snippet func "A simple function" !b
+function ${2:name}(${3:\$args})
+{
+    ${0://some code ...}
+}
+endsnippet
+
 snippet afun "A abstract function snippet" !b
 abstract ${1:public} function ${2:name}(${3:\$arguments});
 endsnippet
@@ -202,8 +209,8 @@ use PhpSpec\ObjectBehavior;
 class ${2:ClassName}Spec extends ObjectBehavior
 {
     function it_should_be_initializable()
-    {
-         \$this->shouldHaveType('$1\\$2');    
+/bin/bash: :w: command not found
+        \$this->shouldHaveType('$1\\$2');    
     }
 }
 endsnippet
