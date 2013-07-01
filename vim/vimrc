@@ -132,10 +132,6 @@ endfunction
 map <F2> :call StripTrailingWhitespace()<CR>
 map! <F2> :call StripTrailingWhitespace()<CR>
 
-"
-" Some sugar on my Keyboard
-"
- 
 " in insert mode (imap), some useful shortcuts.
 imap jj `
 imap kk \
@@ -190,7 +186,7 @@ let g:Powerline_symbols = 'fancy'
 " Coloration
 "
 set t_Co=256
-colorscheme molokai 
+colorscheme molokai
 
 " force to never use arrow for navigation !
 nmap <Up> <nop>
@@ -223,8 +219,8 @@ nnoremap <Leader><C-c> :!rm -rf ~/.vim/tmp/*<CR>
 
 " easy buffer navigation
 nmap <Leader>b <Leader>lb
-nnoremap <Leader>l :bn<CR>
-nnoremap <Leader>h :bp<CR>
+nnoremap <Leader>ll :bn<CR>
+nnoremap <Leader>hh :bp<CR>
 nnoremap <Leader>q :bd<CR>
 nmap <Leader>f <Leader>lr
 
