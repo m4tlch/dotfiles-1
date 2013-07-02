@@ -11,9 +11,9 @@ prompt() {
 
     if [ $last_status -eq "0" ]
     then
-        smiley="${color_start}😊  \W"
+        smiley="${color_start}☺  \W"
     else
-        smiley="${color_start}😠  \W"
+        smiley="${color_start}☹  \W"
     fi
 
     if [ -z "$git_branch" ]
@@ -24,8 +24,6 @@ prompt() {
     fi
 
     PS1="${smiley}${git}${color_end} "
-
-    PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
 }
 
 PROMPT_COMMAND=prompt
