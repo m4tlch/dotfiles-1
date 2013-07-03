@@ -119,6 +119,7 @@ au BufNewFile,BufRead *.twig set ft=htmljinja
 " Use the haskell filetype for hss files
 au BufNewFile,BufRead *.hsc set ft=haskell
 
+match ErrorMsg '\s\+$'
 " automatically remove trailing whitespace before write
 function! StripTrailingWhitespace()
   normal mZ
@@ -129,8 +130,8 @@ function! StripTrailingWhitespace()
   normal `Z
 endfunction
 
-map <F2> :call StripTrailingWhitespace()<CR>
-map! <F2> :call StripTrailingWhitespace()<CR>
+map <silent> <F2> :call StripTrailingWhitespace()<CR>
+map! <silent> <F2> :call StripTrailingWhitespace()<CR>
 
 " in insert mode (imap), some useful shortcuts.
 imap jj `
