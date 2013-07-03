@@ -163,6 +163,7 @@ Bundle 'Lokaltog/vim-powerline.git'
 Bundle 'godlygeek/tabular.git'
 Bundle 'tpope/vim-fugitive.git'
 Bundle 'sjbach/lusty.git'
+Bundle 'mileszs/ack.vim.git'
 
 filetype plugin indent on
 
