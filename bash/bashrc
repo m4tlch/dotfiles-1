@@ -44,7 +44,8 @@ PROMPT_COMMAND=prompt
 # defined alias
 alias sf="./app/console"
 alias phpspec="./bin/phpspec"
-alias spec="./bin/phpspec --format=nyan"
+alias spec="./bin/phpspec run -fpretty"
+alias specn="./bin/phpspec --format=nyan"
 alias behat="./bin/behat"
 alias tmux='tmux -2'
 alias g="git"
