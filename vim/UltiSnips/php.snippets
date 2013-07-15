@@ -7,6 +7,22 @@ def namespace(snip, path):
 		return ''
 	return os.linesep + snip.mkline('namespace ' + namespace + ';') + os.linesep
 
+def specNamespace(snip, path):
+    import os
+    namespace = ns(snip, path)
+    if (len(namespace) == 0):
+        return ''
+    return os.linesep + snip.mkline('namespace '+namespace+';') + os.linesep
+
+def ns(snip, path):
+    import os
+    namespace = pathToNamespace(path)
+    exp = namespace.split('\\')
+    namespace = '\\'.join(exp[1:])
+    if (len(namespace) == 0):
+        return ''
+    return namespace
+
 def pathToNamespace(path):
 	import re
 	path = path.replace('/', '\\')
@@ -90,8 +106,8 @@ endsnippet
 snippet getsets "Generate getters and setters" !b
 public function add${1/(.*)/\u$1/}(\$$1)
 {
-    \$this->$2->add($1);
-    
+    \$this->$2->add(\$$1);
+
     return \$this;
 }
 
@@ -111,7 +127,7 @@ public function ${4:has}${1/(.*)/\u$1/}(\$$1)
 {
     foreach (\$this->$2 as \$value) {
         if (\$value$3) {
-            
+
             return true;
         }
     }
@@ -187,9 +203,9 @@ snippet author "Generate an author doc" !b
 @author David Jegat <david.jegat@gmail.com>
 endsnippet
 
-snippet gearsfile "Generate a corect gears head file" !b
+snippet licence "Generate a Licence block" !b
 /*
- * This file is litle piece of ${1:Bundle} 
+ * This file is litle piece of ${1:Bundle}
  *
  * (c) david jegat <david.jegat@gmail.com>
  *
@@ -201,16 +217,14 @@ endsnippet
 
 snippet spec "Generate a phpspec class" !b
 <?php
-
-namespace spec\\${1:Namespace};
-
+`!p snip.rv = specNamespace(snip, path)`
 use PhpSpec\ObjectBehavior;
 
-class ${2:ClassName}Spec extends ObjectBehavior
+class `!p snip.rv = snip.basename` extends ObjectBehavior
 {
     function it_should_be_initializable()
     {
-        \$this->shouldHaveType('$1\\$2');
+        \$this->shouldHaveType('`!p snip.rv = ns(snip, path)`\\`!p snip.rv = snip.basename`');
     }
 }
 endsnippet
