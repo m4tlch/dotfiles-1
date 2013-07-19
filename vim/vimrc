@@ -150,7 +150,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'The-NERD-tree'
-Bundle 'ctrlp.vim'
+Bundle 'wincent/Command-T.git'
 Bundle 'UltiSnips'
 Bundle 'arnaud-lb/vim-php-namespace'
 Bundle 'airblade/vim-gitgutter'
@@ -165,15 +165,18 @@ Bundle 'godlygeek/tabular.git'
 Bundle 'tpope/vim-fugitive.git'
 Bundle 'sjbach/lusty.git'
 Bundle 'mileszs/ack.vim.git'
+Bundle 'Herzult/phpspec-vim.git'
 
 filetype plugin indent on
 
 "
-" Ctrlp wildignore
+" Command-T mapping
 "
-let g:ctrlp_custom_ignore ={
-    \ 'dir': 'app/cache',
-    \}
+let g:CommandTMaxHeight=10
+let g:CommandTCancelMap='<C-w>'
+let g:CommandTHighlightColor='molokai'
+nnoremap <silent> <C-p> :CommandT<CR>
+nnoremap <silent> <C-b> :CommandTBuffer<CR>
 
 "
 " UltiSnips comportment
