@@ -50,6 +50,15 @@ abstract class `!p snip.rv = snip.basename` $1
 }
 endsnippet
 
+snippet unit "Display a phpunit class" !b
+<?php
+`!p snip.rv = namespace(snip, path)`
+class `!p snip.rv = snip.basename` extends \PHPUnit_Framework_TestCase
+{
+    $0
+}
+endsnippet
+
 snippet it "Generate an interface skeleton" !b
 <?php
 `!p snip.rv = namespace(snip, path)`
