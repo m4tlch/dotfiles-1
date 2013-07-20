@@ -204,6 +204,7 @@ nnoremap <C-x> :NERDTreeToggle<CR>
 vnoremap <Leader>: :Tabularize /:<CR>
 vnoremap <Leader>= :Tabularize /=<CR>
 vnoremap <Leader>> :Tabularize /=><CR>
+vnoremap <Leader>$ :Tabularize /\$/l1r0<CR>
 nnoremap <Leader>t :!ctags -R --PHP-kinds=+cf<CR>
 nnoremap <Leader>v :source ~/.vimrc<CR>
 
