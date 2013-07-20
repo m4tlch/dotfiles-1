@@ -211,7 +211,6 @@ nnoremap <Leader>v :source ~/.vimrc<CR>
 " easy navigation between words
 nmap <C-l> w
 nmap <C-h> b
-nmap r <C-r>
 
 " easy select all
 nmap <Leader>a gg<S-v><S-g><CR>
