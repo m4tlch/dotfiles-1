@@ -138,7 +138,7 @@ imap jj `
 imap kk \
 
 " TODO get rid of this specific config
-set wildignore=data/**,app/cache/**,web/bundles/**
+set wildignore=data/**,app/cache/**,web/bundles/**,src/*/*Bundle/vendor,src/*/vendor,old/*
 
 "
 " Vundle configuration
@@ -175,6 +175,7 @@ filetype plugin indent on
 let g:CommandTMaxHeight=10
 let g:CommandTCancelMap='<C-w>'
 let g:CommandTHighlightColor='molokai'
+let g:CommandTRefreshMap='<F5>'
 nnoremap <silent> <C-p> :CommandT<CR>
 nnoremap <silent> <C-b> :CommandTBuffer<CR>
 

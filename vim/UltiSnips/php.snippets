@@ -14,11 +14,35 @@ def specNamespace(snip, path):
         return ''
     return os.linesep + snip.mkline('namespace '+namespace+';') + os.linesep
 
+def bundleSpecNamespace(snip, path):
+    import os
+    namespace = 'spec\\'+bdNs(snip, path)
+    if (len(namespace) == 0):
+        return ''
+    return os.linesep + snip.mkline('namespace '+namespace+';') + os.linesep
+
 def ns(snip, path):
     import os
     namespace = pathToNamespace(path)
     exp = namespace.split('\\')
     namespace = '\\'.join(exp[1:])
+    if (len(namespace) == 0):
+        return ''
+    return namespace
+
+def bdNs(snip, path):
+    import os
+    namespace = pathToNamespace(path)
+    exp = namespace.split('\\')
+    namespace = ''
+    find = False
+    for ns in exp:
+        if ns == "spec" and not find:
+            find = True
+        elif find:
+            namespace += ns+'\\'
+    if namespace[-1] == '\\':
+        namespace = namespace[:-1]
     if (len(namespace) == 0):
         return ''
     return namespace
@@ -235,6 +259,22 @@ class `!p snip.rv = snip.basename` extends ObjectBehavior
     {
         \$this->shouldHaveType('`!p snip.rv = ns(snip, path)`\\`!p snip.rv = snip.basename`');
     }
+}
+endsnippet
+
+snippet bspec "Generate a spec class inside a bundle" !b
+<?php
+`!p snip.rv = bundleSpecNamespace(snip, path)`
+use PhpSpec\ObjectBehavior;
+
+class `!p snip.rv = snip.basename` extends ObjectBehavior
+{
+    function it_should_be_initializable()
+    {
+        \$this->shouldHaveType('`!p snip.rv = bdNs(snip, path)`\\`!p snip.rv = snip.basename.replace('Spec', '')`');
+    }
+
+    $0
 }
 endsnippet
 
