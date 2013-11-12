@@ -247,7 +247,11 @@ nnoremap <Leader>hh :bp<CR>
 nnoremap <Leader>q :BD<CR>
 nmap <Leader>f <Leader>lr
 
-map <M-a>v <C-w>
+map <M-a>v <C-c>
+
+" Easy tags jump
+nmap <silent> <Leader>m "zyiw:exe ":ts ".@z.""<CR>
+nmap <silent> <Leader>j "zyiw:exe ":tselect ".@z.""<CR>
 
 " configure NERDTree
 set modifiable
