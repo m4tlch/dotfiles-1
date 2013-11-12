@@ -59,5 +59,15 @@ alias sfcg="./app/console cont:de | grep"
 alias sfld="tail -f ./app/logs/dev.log"
 alias sflp="tail -f ./app/logs/prod.log"
 alias clip="xclip -sel clip"
+alias grep="grep --color"
 alias :q="exit"
 alias :r="source ~/.bashrc"
+
+# {{{
+# Node Completion - Auto-generated, do not touch.
+shopt -s progcomp
+for f in $(command ls ~/.node-completion); do
+  f="$HOME/.node-completion/$f"
+  test -f "$f" && . "$f"
+done
+# }}}

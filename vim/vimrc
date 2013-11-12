@@ -11,10 +11,6 @@ set colorcolumn=86
 " higlight the cursor line
 set cursorline
 
-if has('gui_running')
-    set guifont=Monaco\ 12   " Mac OS X 10.5 default monospace font
-endif
-
 "
 " Tabs & Indentation
 "
@@ -25,6 +21,11 @@ set smartindent   " indents one extra level according to current syntax
 " indents with tab = 4 spaces
 set tabstop=4
 set shiftwidth=4
+set list
+set listchars=eol:ᛎ,trail:‧,tab:▹∙,nbsp:ⅹ
+if has('gui_running')
+    set listchars=eol:ᛎ,trail:‧,tab:▹∙,nbsp:ⅹ
+endif
 " fixme: should use softtabstop=4 instead of expandtab and setting tabstop
 
 " define shortcuts ',2' and ',4' to change indentation easily:
@@ -119,7 +120,11 @@ au BufNewFile,BufRead *.twig set ft=htmljinja
 " Use the haskell filetype for hss files
 au BufNewFile,BufRead *.hsc set ft=haskell
 
+" Use the dart filetype for dart files
+au BufNewFile,BufRead *.dart set ft=dart
+
 match ErrorMsg '\s\+$'
+silent! set listchars+=nbsp:~
 " automatically remove trailing whitespace before write
 function! StripTrailingWhitespace()
   normal mZ
@@ -146,12 +151,14 @@ set wildignore=data/**,app/cache/**,web/bundles/**,src/*/*Bundle/vendor,src/*/ve
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
+set tags+=vendor.tags
+
 " Let vundle manage the vundle
 Bundle 'gmarik/vundle'
 
 Bundle 'The-NERD-tree'
-Bundle 'wincent/Command-T.git'
 Bundle 'UltiSnips'
+Bundle 'wincent/Command-T'
 Bundle 'arnaud-lb/vim-php-namespace'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'Lokaltog/vim-distinguished.git'
@@ -166,14 +173,23 @@ Bundle 'tpope/vim-fugitive.git'
 Bundle 'sjbach/lusty.git'
 Bundle 'mileszs/ack.vim.git'
 Bundle 'Herzult/phpspec-vim.git'
+Bundle 'vim-scripts/bufkill.vim.git'
+Bundle 'tobyS/vmustache.git'
+Bundle 'tobyS/pdv'
 
 filetype plugin indent on
+
+"
+" PDV
+"
+let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
+nnoremap <Leader><C-p> :call pdv#DocumentWithSnip()<CR>
+nnoremap <Leader>d :call pdv#DocumentCurrentLine()<CR>
 
 "
 " Command-T mapping
 "
 let g:CommandTMaxHeight=10
-let g:CommandTCancelMap='<C-w>'
 let g:CommandTHighlightColor='molokai'
 let g:CommandTRefreshMap='<F5>'
 nnoremap <silent> <C-p> :CommandT<CR>
@@ -203,9 +219,10 @@ nmap <Right> <nop>
 " Add some keys map
 nnoremap <C-x> :NERDTreeToggle<CR>
 vnoremap <Leader>: :Tabularize /:<CR>
+vnoremap <Leader>/ :Tabularize /:\zs<CR>
 vnoremap <Leader>= :Tabularize /=<CR>
 vnoremap <Leader>> :Tabularize /=><CR>
-vnoremap <Leader>$ :Tabularize /\$/l1r0<CR>
+vnoremap <Leader>$ :Tabularize /\$/l0r1<CR>
 nnoremap <Leader>t :!ctags -R --PHP-kinds=+cf<CR>
 nnoremap <Leader>v :source ~/.vimrc<CR>
 
@@ -227,8 +244,10 @@ nnoremap <Leader><C-c> :!rm -rf ~/.vim/tmp/*<CR>
 nmap <Leader>b <Leader>lb
 nnoremap <Leader>ll :bn<CR>
 nnoremap <Leader>hh :bp<CR>
-nnoremap <Leader>q :bd<CR>
+nnoremap <Leader>q :BD<CR>
 nmap <Leader>f <Leader>lr
+
+map <M-a>v <C-w>
 
 " configure NERDTree
 set modifiable
