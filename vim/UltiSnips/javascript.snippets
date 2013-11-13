@@ -1,3 +1,11 @@
+snippet req "Require a nodejs module" !b
+var ${1:module} = require('${2:path}');
+endsnippet
+
+snippet exp "Export nodejs module" !b
+module.exports = ${1:module};
+endsnippet
+
 snippet func "Standard javascript function" !b
 var ${1:name} = function(${2:args}) {
     $0

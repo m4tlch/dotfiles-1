@@ -123,6 +123,9 @@ au BufNewFile,BufRead *.hsc set ft=haskell
 " Use the dart filetype for dart files
 au BufNewFile,BufRead *.dart set ft=dart
 
+" Use he mardown syntax for *.md files
+au BufNewFile,BufRead *md set ft=markdown
+
 match ErrorMsg '\s\+$'
 silent! set listchars+=nbsp:~
 " automatically remove trailing whitespace before write
