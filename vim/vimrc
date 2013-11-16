@@ -161,7 +161,7 @@ Bundle 'gmarik/vundle'
 
 Bundle 'The-NERD-tree'
 Bundle 'UltiSnips'
-Bundle 'wincent/Command-T'
+Bundle 'kien/ctrlp.vim.git'
 Bundle 'arnaud-lb/vim-php-namespace'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'Lokaltog/vim-distinguished.git'
@@ -192,11 +192,10 @@ nnoremap <Leader>d :call pdv#DocumentCurrentLine()<CR>
 "
 " Command-T mapping
 "
-let g:CommandTMaxHeight=10
-let g:CommandTHighlightColor='molokai'
-let g:CommandTRefreshMap='<F5>'
-nnoremap <silent> <C-p> :CommandT<CR>
-nnoremap <silent> <C-b> :CommandTBuffer<CR>
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+nnoremap <silent> <C-b> :CtrlPBuffer<CR>
 
 "
 " UltiSnips comportment
