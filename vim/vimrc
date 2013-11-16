@@ -230,6 +230,7 @@ vnoremap <Leader>= :Tabularize /=<CR>
 vnoremap <Leader>> :Tabularize /=><CR>
 vnoremap <Leader>$ :Tabularize /\$/l0r1<CR>
 nnoremap <Leader>t :!ctags -R --PHP-kinds=+cf<CR>
+nnoremap <Leader><C-t> :!javascript-ctags lib/**/*.js<CR>
 nnoremap <Leader>v :source ~/.vimrc<CR>
 
 " easy navigation between words
@@ -272,7 +273,7 @@ noremap <Leader>e :call PhpExpandClass()<CR>
 " Jsdoc mapping
 "
 let g:jsdoc_default_mapping = 0
-nmap <silent> <Leader>j :call jsdoc#insert()<CR>
+nmap <silent> <Leader><C-j> :call jsdoc#insert()<CR>
 
 " ctrlp configuration
 let g:ctrlp_working_path_mode = 0
