@@ -95,12 +95,6 @@ set backspace=indent,eol,start      " Improve backspacing
 " Restore cursor position
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
-" Faster viewport scrolling
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y>
-nnoremap <C-j> 3j
-nnoremap <C-k> 3k
-
 "
 " Chars
 "
@@ -110,7 +104,6 @@ set encoding=utf-8
 "
 " Syntax & File types
 "
-
 syntax enable                       " Enable syntax highlighting
 filetype off          " enable file type detection
 
@@ -126,7 +119,7 @@ au BufNewFile,BufRead *.dart set ft=dart
 " Use he mardown syntax for *.md files
 au BufNewFile,BufRead *md set ft=markdown
 
-" change identation on .js files
+" change indentation on .js files
 autocmd FileType javascript set tabstop=2|set shiftwidth=2
 
 match ErrorMsg '\s\+$'
@@ -194,12 +187,16 @@ nnoremap <Leader><C-p> :call pdv#DocumentWithSnip()<CR>
 nnoremap <Leader>d :call pdv#DocumentCurrentLine()<CR>
 
 "
-" Command-T mapping
+" ControlP mapping
 "
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
 nnoremap <silent> <C-b> :CtrlPBuffer<CR>
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v([\/]\.(git|hg|svn))|([\/]vendor)$',
+  \ }
 
 "
 " UltiSnips comportment
@@ -236,6 +233,8 @@ nnoremap <Leader>v :source ~/.vimrc<CR>
 " easy navigation between words
 nmap <C-l> w
 nmap <C-h> b
+nmap <C-j> 4j
+nmap <C-k> 4k
 
 " easy select all
 nmap <Leader>a gg<S-v><S-g><CR>
