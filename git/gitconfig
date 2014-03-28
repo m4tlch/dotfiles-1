@@ -14,6 +14,7 @@
     lg = log -p
     all = add -A
     amend = commit --amend
+    aci = !git add -A && git commit -m
 
 [merge]
     tool = vimdiff

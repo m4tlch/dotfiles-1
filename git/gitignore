@@ -1,4 +1,4 @@
 tags
 vendor.tags
 Guardfile
-.editorconfig
+sample/

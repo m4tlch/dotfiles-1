@@ -1,4 +1,5 @@
 set-option -g default-terminal screen-256color
+set-option -g default-shell /bin/zsh
 
 # rebind default keys
 set -g prefix M-a
@@ -15,24 +16,28 @@ bind j select-pane -D
 bind k select-pane -U
 bind l select-pane -R
 
+# swap window to the beginning
+bind L swap-window -t +1
+bind H swap-window -t -1
+
 # reload tmux conf
 bind-key r source-file ~/.tmux.conf \; display "Config reloaded"
 
 set -g status-fg colour250
-set -g status-bg colour233
+set -g status-bg colour016
 
 # left side of status bar
 set -g status-left-length 30
-set -g status-left '#[fg=colour250,bg=colour24,bold]😎  #W #[fg=colour24,bg=colour233,nobold]⮀'
+set -g status-left '#[fg=colour016,bg=colour24,nobold]⮀#[fg=colour250,bg=colour24,bold] 😎  #W #[fg=colour24,bg=colour016,nobold]⮀'
 
 # right side of status bar
 set -g status-right-length 30
-set -g status-right '#[fg=colour24,bg=colour233,nobold]⮂#[fg=colour250,bg=colour24,bold] %Y-%m-%d - %H:%M'
+set -g status-right '#[fg=colour24,bg=colour016,nobold]⮂#[fg=colour250,bg=colour24,bold] %Y-%m-%d - %H:%M #[fg=colour016,bg=colour24,nobold]⮂'
 
 # status bar options
 set-option -g status-justify centre         # alignment of windows
 set -g window-status-format ' #W '          # Inactive windows in status bar
-set -g window-status-current-format '#[fg=colour250,bg=colour24,bold] ☺  #W  '
+set -g window-status-current-format '#[fg=colour250,bg=colour24,bold] #W '
 
 # message bar
 set -g message-fg colour250

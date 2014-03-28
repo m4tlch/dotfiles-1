@@ -6,7 +6,7 @@ let mapleader=","               " Use the comma as leader
 set history=1000                " Increase history
 set nobackup                    " Do not backup files on overwrite
 set directory=~/.vim/tmp        " Directory to put swap file
-set colorcolumn=86
+execute "set colorcolumn=" . join(range(120,335), ',')
 
 " higlight the cursor line
 set cursorline
@@ -40,9 +40,12 @@ set ruler                           " Show cursor position
 set number                          " Show line numbers
 set notitle                         " Don't show title in console title bar
 set novisualbell                    " Don't use the visual bell
-set wrap                            " Wrap lineource $MYVIMRC
+set nowrap                          " Wrap lineource $MYVIMRC
 set showmatch                       " Show matching (){}[]
 set clipboard+=unnamed              " Allow to cp/p from clipboard
+
+map <leader>l 20zl
+map <leader>h 20zh
 
 "Change line numbers color
 autocmd InsertEnter * hi LineNr      ctermfg=16 ctermbg=214 guifg=Orange guibg=#151515
@@ -110,6 +113,10 @@ filetype off          " enable file type detection
 " Use the htmljinja syntax for twig files
 au BufNewFile,BufRead *.twig set ft=htmljinja
 
+" Use the underscore js syntax for ejs files
+au BufRead,BufNewFile *.ejs set filetype=html
+au BufRead,BufNewFile *.ejs set syntax=underscore_template
+
 " Use the haskell filetype for hss files
 au BufNewFile,BufRead *.hsc set ft=haskell
 
@@ -118,9 +125,6 @@ au BufNewFile,BufRead *.dart set ft=dart
 
 " Use he mardown syntax for *.md files
 au BufNewFile,BufRead *md set ft=markdown
-
-" change indentation on .js files
-autocmd FileType javascript set tabstop=2|set shiftwidth=2
 
 match ErrorMsg '\s\+$'
 silent! set listchars+=nbsp:~
@@ -142,7 +146,7 @@ imap jj `
 imap kk \
 
 " TODO get rid of this specific config
-set wildignore=data/**,app/cache/**,web/bundles/**,src/*/*Bundle/vendor,src/*/vendor,old/*
+set wildignore=data/**,app/cache/**,web/bundles/**,src/*/*Bundle/vendor,src/*/vendor,old/*,app/lib/*
 
 "
 " Vundle configuration
@@ -158,6 +162,7 @@ Bundle 'gmarik/vundle'
 Bundle 'The-NERD-tree'
 Bundle 'UltiSnips'
 Bundle 'kien/ctrlp.vim.git'
+Bundle 'ivalkeen/vim-ctrlp-tjump.git'
 Bundle 'arnaud-lb/vim-php-namespace'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'Lokaltog/vim-distinguished.git'
@@ -176,15 +181,18 @@ Bundle 'Herzult/phpspec-vim.git'
 Bundle 'vim-scripts/bufkill.vim.git'
 Bundle 'tobyS/vmustache.git'
 Bundle 'tobyS/pdv'
+Bundle 'editorconfig/editorconfig-vim.git'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'aaronj1335/underscore-templates.vim.git'
+Bundle 'scrooloose/nerdcommenter.git'
 
 filetype plugin indent on
 
 "
 " PDV
 "
-let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
-nnoremap <Leader><C-p> :call pdv#DocumentWithSnip()<CR>
-nnoremap <Leader>d :call pdv#DocumentCurrentLine()<CR>
+let g:pdv_template_dir = $HOME ."/.vim/doc_templates"
+nnoremap <Leader>d :call pdv#DocumentWithSnip()<CR>
 
 "
 " ControlP mapping
@@ -195,7 +203,7 @@ let g:ctrlp_cmd = 'CtrlP'
 nnoremap <silent> <C-b> :CtrlPBuffer<CR>
 
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v([\/]\.(git|hg|svn))|([\/]vendor)$',
+  \ 'dir':  '\v([\/]\.(git|hg|svn))|([\/]vendor)|([\/]node_modules)|([\/]compiled)|([\/]dist)|([\/]app/lib)|([\/]bower_components)|([\/]doc)$',
   \ }
 
 "
@@ -212,6 +220,7 @@ let g:Powerline_symbols = 'fancy'
 "
 set t_Co=256
 colorscheme molokai
+hi Normal          ctermfg=252 ctermbg=none
 
 " force to never use arrow for navigation !
 nmap <Up> <nop>
@@ -227,8 +236,10 @@ vnoremap <Leader>= :Tabularize /=<CR>
 vnoremap <Leader>> :Tabularize /=><CR>
 vnoremap <Leader>$ :Tabularize /\$/l1r0<CR>
 nnoremap <Leader>t :!ctags -R --PHP-kinds=+cf<CR>
-nnoremap <Leader><C-t> :!javascript-ctags lib/**/*.js<CR>
+nnoremap <Leader><C-t> :!ctags -R --PHP-kinds=+cf -h ".js"<CR>
 nnoremap <Leader>v :source ~/.vimrc<CR>
+nnoremap <silent> <Leader>+ :vertical resize +5<CR>
+nnoremap <silent> <Leader>- :vertical resize -5<CR>
 
 " easy navigation between words
 nmap <C-l> w
@@ -280,3 +291,4 @@ let g:ctrlp_working_path_mode = 0
 " vim-symfony configuration
 let g:symfony_app_console_caller= "php"
 let g:symfony_app_console_path= "app/console"
+noremap <silent> <C-t> :CtrlPTag<cr>

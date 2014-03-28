@@ -65,9 +65,37 @@ class `!p snip.rv = snip.basename` $1
 }
 endsnippet
 
+snippet cld "Display a class with doc" !b
+<?php
+`!p snip.rv = namespace(snip, path)`
+/**
+ * ${2:Class doc ..}
+ *
+ * @author David Jegat <david.jegat@gmail.com>
+ */
+class `!p snip.rv = snip.basename` $1
+{
+    ${0://implementation ...}
+}
+endsnippet
+
 snippet acl "Display abstract class" !b
 <?php
 `!p snip.rv = namespace(snip, path)`
+abstract class `!p snip.rv = snip.basename` $1
+{
+    ${0://implementation ...}
+}
+endsnippet
+
+snippet acld "Display abstract class with doc" !b
+<?php
+`!p snip.rv = namespace(snip, path)`
+/**
+ * ${2:Class doc ...}
+ *
+ * @author David Jegat <david.jegat@gmail.com>
+ */
 abstract class `!p snip.rv = snip.basename` $1
 {
     ${0://implementation ...}
@@ -92,7 +120,31 @@ interface `!p snip.rv = snip.basename` $1
 }
 endsnippet
 
+snippet itd "Generate an interface skeleton with doc" !b
+<?php
+`!p snip.rv = namespace(snip, path)`
+/**
+ * ${2:Interface doc ...}
+ *
+ * @author David Jegat <david.jegat@gmail.com>
+ */
+interface `!p snip.rv = snip.basename` $1
+{
+    ${0://implementation ...}
+}
+endsnippet
+
 snippet fun "A simple function snippet" !b
+${1:public} function ${2:name}(${3:\$value})
+{
+    ${0://some code here ...}
+}
+endsnippet
+
+snippet fund "A simple function snippet with doc" !b
+/**
+ * ${4:Doc ...}
+ */
 ${1:public} function ${2:name}(${3:\$value})
 {
     ${0://some code here ...}
@@ -106,16 +158,47 @@ function ${2:name}(${3:\$args})
 }
 endsnippet
 
+snippet funcd "A simple function with doc" !b
+/**
+ * ${4:Doc ...}
+ */
+function ${2:name}(${3:\$args})
+{
+    ${0://some code ...}
+}
+endsnippet
+
 snippet afun "A abstract function snippet" !b
 abstract ${1:public} function ${2:name}(${3:\$arguments});
+endsnippet
+
+snippet afun "A abstract function snippet with doc" !b
+/**
+ * ${4:Doc ...}
+ */
+abstract ${1:public} function ${2:name}(${3:\$arguments});$0
 endsnippet
 
 snippet funi "Add a simple mehod signature" !b
 public function ${1:name}(${3:\$args});
 endsnippet
 
+snippet funid "Add a simple mehod signature with doc" !b
+/**
+ * ${4:Doc ...}
+ */
+public function ${1:name}(${3:\$args});$0
+endsnippet
+
 snippet attr "Display an attribute" !b
-${1:public} \$${2:value};
+${1:private} \$${2:value};
+endsnippet
+
+snippet attrd "Display an attribute with doc" !b
+/**
+ * @var ${3:string}
+ */
+${1:private} \$${2:value};$0
 endsnippet
 
 snippet use "Use statement" !b
@@ -134,6 +217,32 @@ public function set${1/(.*)/\u$1/}(\$$1)
 
     return \$this;
 }
+endsnippet
+
+snippet getsetd "Generate getter and setter with doc" !b
+/**
+ * Get $2
+ *
+ * @return ${3:string}
+ */
+public function get${1/(.*)/\u$1/}()
+{
+    return \$this->$1;
+}
+
+/**
+ * Set $2
+ *
+ * @param $3 \$$1
+ *
+ * @return `!p snip.rv = snip.basename`
+ */
+public function set${1/(.*)/\u$1/}(\$$1)
+{
+    \$this->$1 = \$$1;
+
+    return \$this;
+}$0
 endsnippet
 
 snippet getsets "Generate getters and setters" !b
@@ -182,15 +291,23 @@ public function remove${1/(.*)/\u$1/}(\$$1)
 }
 endsnippet
 
-snippet docattr "Generate doctrine attribute" !b
+snippet dattr "Generate doctrine attribute column" !b
 /**
- * @var ${1:Type} \$$2
- * @ORM\\${3:Column()}
+ * @ORM\\Column$2
  */
-private \$${2:name};
+private \$${1:name};
 endsnippet
 
-snippet ormcl "Generate a dotrine ORM class" !b
+snippet dattrd "Generate doctrine attribute column with phpdoc" !b
+/**
+ * @var ${3:string}
+ *
+ * @ORM\\Column$2
+ */
+private \$${1:name};
+endsnippet
+
+snippet dcl "Generate a dotrine ORM class" !b
 <?php
 `!p snip.rv = namespace(snip, path)`
 use Doctrine\ORM\Mapping as ORM;
@@ -212,7 +329,7 @@ class `!p snip.rv = snip.basename` $2
 }
 endsnippet
 
-snippet ormrepo "Generate a doctrine repository" !b
+snippet drep "Generate a doctrine repository" !b
 <?php
 `!p snip.rv = namespace(snip, path)`
 use Doctrine\ORM\EntityRepository;
@@ -222,7 +339,7 @@ class `!p snip.rv = snip.basename` extends EntityRepository
 }
 endsnippet
 
-snippet radrepo "Generate a RabBundle repository" !b
+snippet radrep "Generate a RabBundle repository" !b
 <?php
 `!p snip.rv = namespace(snip, path)`
 use Knp\RadBundle\Doctrine\EntityRepository;
@@ -246,6 +363,14 @@ snippet licence "Generate a Licence block" !b
  * licence please read the LICENSE file distributed with this package.
  */
 
+endsnippet
+
+snippet knplicense "Generate a knp licence" !b
+/*
+ * This file is litle piece of ${1:Bundle}
+ *
+ * (c) knplabs <hello@knplabs.com>
+ */
 endsnippet
 
 snippet spec "Generate a phpspec class" !b
@@ -284,4 +409,12 @@ endsnippet
 
 snippet th "this" !b
 \$this->$0
+endsnippet
+
+snippet th= "this equal" !b
+\$this->$1 = \$$1;$0
+endsnippet
+
+snippet th=n "this equal null" !b
+\$this->$1 = null;$0
 endsnippet
