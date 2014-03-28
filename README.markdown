@@ -4,6 +4,8 @@ About
 Hi guys ! This is my configuration files for tmux, vim and git. Please
 fork and have fun !
 
+[![pimp my linux!](.images/pimp_my_linux.png)](.images/pimp_my_linux.png)
+
 Installation
 ============
 
