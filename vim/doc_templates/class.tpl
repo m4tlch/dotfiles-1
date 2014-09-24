@@ -6,5 +6,5 @@
  * @abstract{{/abstract}}{{#final}}
  * @final{{/final}}
  *
- * @author ${2:KnpLabs} <${3:hello@knplabs.com}>
+ * @author ${2:David Jegat} <${3:david.jegat@gmail.com}>
  */

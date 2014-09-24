@@ -48,13 +48,40 @@ def bdNs(snip, path):
     return namespace
 
 def pathToNamespace(path):
-	import re
-	path = path.replace('/', '\\')
-	path = re.sub(r'\b[^\\]*\Z', '', path)
-	path = path.strip('\\')
-	return re.sub(r'\A(\b[^A-Z][^\\]*\\)*', '', path)
+    import re
+    path = path if path[0:2] != './' else path[2:]
+    path = path.replace('/', '\\')
+    path = re.sub(r'\b[^\\]*\Z', '', path)
+    path = path.strip('\\')
+    return re.sub(r'\A(\b[^A-Z][^\\]*\\)*', '', path)
 
 endglobal
+
+snippet i "Simple if insrtuction" !b
+if ($1) {
+    $0
+}
+endsnippet
+
+snippet ie "Simple if else instruction" !b
+if ($1) {
+    $0
+} else ($2) {
+
+}
+endsnippet
+
+snippet f "Simple for instruction" !b
+for (\$i = 0; \$i < $1; \$i++) {
+    $0
+}
+endsnippet
+
+snippet fe "Simple foreach instruction" !b
+foreach ($1 as $2) {
+    $0
+}
+endsnippet
 
 snippet cl "Display a class" !b
 <?php
@@ -158,6 +185,13 @@ function ${2:name}(${3:\$args})
 }
 endsnippet
 
+snippet cons "A simple constructor" !b
+public function __construct(${1:$args})
+{
+    $0
+}
+endsnippet
+
 snippet funcd "A simple function with doc" !b
 /**
  * ${4:Doc ...}
@@ -246,46 +280,26 @@ public function set${1/(.*)/\u$1/}(\$$1)
 endsnippet
 
 snippet getsets "Generate getters and setters" !b
-public function add${1/(.*)/\u$1/}(\$$1)
+public function add${1/(.*)/\u$1/}(${1/(.*)/\u$1/} \$$1)
 {
     \$this->$2->add(\$$1);
 
     return \$this;
 }
 
-public function get${1/(.*)/\u$1/}(\$$1)
+public function get${1/(.*)/\u$1/}s()
 {
-    foreach (\$this->$2 as \$value) {
-        if (\$value${3: === \$$1}) {
-
-            return \$value;
-        }
-    }
-
-    return null;
+    return \$this->$2->toArray();
 }
 
-public function ${4:has}${1/(.*)/\u$1/}(\$$1)
+public function has${1/(.*)/\u$1/}(${1/(.*)/\u$1/} \$$1)
 {
-    foreach (\$this->$2 as \$value) {
-        if (\$value$3) {
-
-            return true;
-        }
-    }
-
-    return false;
+    return \$this->$2->contains(\$$1);
 }
 
-public function remove${1/(.*)/\u$1/}(\$$1)
+public function remove${1/(.*)/\u$1/}(${1/(.*)/\u$1/} \$$1)
 {
-    foreach (\$thhis->$2 as \$key => \$value) {
-        if (\$value$3) {
-            \$this->$2->remove(\$key);
-
-            return \$this;
-        }
-    }
+    \$this->$2->removeElement(\$$1);
 
     return \$this;
 }

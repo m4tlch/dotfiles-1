@@ -128,6 +128,10 @@ end
 " Support for 256-color terminal
 "
 if &t_Co > 255
+   hi TabLineFill     ctermfg=0   ctermbg=235
+   hi TabLineSel      ctermfg=231   ctermbg=235
+   hi TabLine         ctermbg=232   ctermbg=0 cterm=none
+
    if s:molokai_original == 1
       hi Normal                   ctermbg=16
       hi CursorLine               ctermbg=235   cterm=none

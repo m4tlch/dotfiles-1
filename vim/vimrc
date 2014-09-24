@@ -6,7 +6,6 @@ let mapleader=","               " Use the comma as leader
 set history=1000                " Increase history
 set nobackup                    " Do not backup files on overwrite
 set directory=~/.vim/tmp        " Directory to put swap file
-execute "set colorcolumn=" . join(range(120,335), ',')
 
 " higlight the cursor line
 set cursorline
@@ -46,6 +45,7 @@ set clipboard+=unnamed              " Allow to cp/p from clipboard
 
 map <leader>l 20zl
 map <leader>h 20zh
+imap <leader>s <C-x><C-u>
 
 "Change line numbers color
 autocmd InsertEnter * hi LineNr      ctermfg=16 ctermbg=214 guifg=Orange guibg=#151515
@@ -63,8 +63,8 @@ if (has('gui_running'))
 endif
 
 " Easily switch between relative & absolute number
-nmap <leader>na :set number<cr>
-nmap <leader>nr :set relativenumber<cr>
+nmap <silent> <leader>na :set norelativenumber<cr>
+nmap <silent> <leader>nr :set relativenumber<cr>
 
 " Automatically create save directory if it does not exist
 au BufWrite * :call <SID>MkdirsIfNotExists(expand('<afile>:h'))
@@ -80,6 +80,8 @@ nmap <leader>r :redraw!<cr>
 " Clear search highlight
 nmap <silent> <leader>/ :let @/=""<cr>
 
+let @a='/implements^Mw,j'
+
 "
 " Command line
 "
@@ -87,6 +89,9 @@ nmap <silent> <leader>/ :let @/=""<cr>
 set wildmenu                        " Better completion
 set wildmode=list:longest           " BASH style completion
 
+" tab navigation
+nnoremap <silent> <C-w>t :tabnew<CR>
+nnoremap <silent> <Leader>n :tabnext<CR>
 "
 " Navigation & Viewport
 "
@@ -185,6 +190,8 @@ Bundle 'editorconfig/editorconfig-vim.git'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'aaronj1335/underscore-templates.vim.git'
 Bundle 'scrooloose/nerdcommenter.git'
+Bundle 'mattn/emmet-vim'
+Bundle 'mustache/vim-mustache-handlebars'
 
 filetype plugin indent on
 
@@ -214,13 +221,13 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 let g:Powerline_symbols = 'fancy'
-
 "
 " Coloration
 "
 set t_Co=256
 colorscheme molokai
 hi Normal          ctermfg=252 ctermbg=none
+let &colorcolumn="80,120"
 
 " force to never use arrow for navigation !
 nmap <Up> <nop>
@@ -229,12 +236,13 @@ nmap <Left> <nop>
 nmap <Right> <nop>
 
 " Add some keys map
-nnoremap <C-x> :NERDTreeToggle<CR>
+nnoremap <leader>x :NERDTreeToggle<CR>
 vnoremap <Leader>: :Tabularize /:<CR>
 vnoremap <Leader>/ :Tabularize /:\zs<CR>
 vnoremap <Leader>= :Tabularize /=<CR>
 vnoremap <Leader>> :Tabularize /=><CR>
 vnoremap <Leader>$ :Tabularize /\$/l1r0<CR>
+vnoremap <Leader>\| :Tabularize /\|<CR>
 nnoremap <Leader>t :!ctags -R --PHP-kinds=+cf<CR>
 nnoremap <Leader><C-t> :!ctags -R --PHP-kinds=+cf -h ".js"<CR>
 nnoremap <Leader>v :source ~/.vimrc<CR>
@@ -246,6 +254,10 @@ nmap <C-l> w
 nmap <C-h> b
 nmap <C-j> 4j
 nmap <C-k> 4k
+vmap <C-l> w
+vmap <C-h> b
+vmap <C-j> 4j
+vmap <C-k> 4k
 
 " easy select all
 nmap <Leader>a gg<S-v><S-g><CR>
@@ -267,8 +279,7 @@ nmap <Leader>f <Leader>lr
 map <M-a>v <C-c>
 
 " Easy tags jump
-nmap <silent> <Leader>m "zyiw:exe ":ts ".@z.""<CR>
-nmap <silent> <Leader>j "zyiw:exe ":tselect ".@z.""<CR>
+nmap <silent> <Leader>j "zyiw:exe ":tj ".@z.""<CR>
 
 " configure NERDTree
 set modifiable
@@ -278,6 +289,10 @@ inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
 noremap <Leader>u :call PhpInsertUse()<CR>
 inoremap <Leader>e <C-O>:call PhpExpandClass()<CR>
 noremap <Leader>e :call PhpExpandClass()<CR>
+
+" ZEN coding shortcuts ;)
+nmap <silent> <Leader>z :call emmet#expandAbbr(3,"")<CR>
+imap <silent> <Leader>z <Esc>h :call emmet#expandAbbr(3,"")<CR>
 
 "
 " Jsdoc mapping
@@ -291,4 +306,6 @@ let g:ctrlp_working_path_mode = 0
 " vim-symfony configuration
 let g:symfony_app_console_caller= "php"
 let g:symfony_app_console_path= "app/console"
+noremap <leader>sr :call CompleteSymfonyRouter()<CR>
+noremap <leader>sc :call CompleteSymfonyContainer()<CR>
 noremap <silent> <C-t> :CtrlPTag<cr>

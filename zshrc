@@ -62,8 +62,8 @@ alias g="git"
 alias ls="ls --color"
 alias ll="ls -la --color"
 alias phpi="php -a"
-alias sfr="./app/console ro:de"
-alias sfc="./app/console cont:de"
+alias sfr="./app/console ro:de | peco"
+alias sfc="./app/console cont:de | peco"
 alias sfrg="./app/console ro:de | grep"
 alias sfcg="./app/console cont:de | grep"
 alias sfld="tail -f ./app/logs/dev.log"
@@ -82,3 +82,14 @@ alias gaa="git add -A"
 alias ga="git add"
 alias gpu="git push"
 alias gpl="git pull"
+alias gru="grep -nri --color"
+
+bindkey ^R history-incremental-search-backward
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export GOPATH="$HOME/.go"
+export EDITOR='vim'
+
+# configure tmuxinator
+source ~/.bin/tmuxinator.zsh
+export TERM=screen-256color-bce
