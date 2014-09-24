@@ -11,7 +11,7 @@ Installation
 
 Clone the repository:
 
-    $ clone git://github.com/davidjegat/dotfiles.git ~/.dotfiles
+    $ git clone --recursive git://github.com/davidjegat/dotfiles.git ~/.dotfiles
 
 Go to the cloned repository
 
