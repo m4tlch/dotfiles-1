@@ -15,10 +15,8 @@
     all = add -A
     amend = commit --amend
     aci = !git add -A && git commit -m
-
 [merge]
     tool = vimdiff
-
 [url "git@github.com:"]
     insteadOf = gh:
 [push]

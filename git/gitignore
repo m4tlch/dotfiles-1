@@ -2,3 +2,5 @@ tags
 vendor.tags
 Guardfile
 sample/
+test/
+test.*
