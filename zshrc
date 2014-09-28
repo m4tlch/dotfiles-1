@@ -93,3 +93,4 @@ export EDITOR='vim'
 # configure tmuxinator
 source ~/.bin/tmuxinator.zsh
 export TERM=screen-256color-bce
+export GOPATH=/home/djeg/.gocode
