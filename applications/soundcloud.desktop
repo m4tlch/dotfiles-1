@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Soundcloud
+Comment=Music&Electro
+Exec=google-chrome --app=https://soundcloud.com/
+Icon=/home/djeg/.icons/soundcloud.png
+Terminal=false
