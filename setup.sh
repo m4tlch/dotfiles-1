@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DIR=`dirnmae $0`
+DIR=`dirname $0`
 
 bash $DIR/.setup/vim.sh
 bash $DIR/.setup/zsh.sh

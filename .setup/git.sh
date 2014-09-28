@@ -2,7 +2,7 @@
 
 echo "Installing git configuration ..."
 
-CDIR=`dirnmae $0`
+CDIR=`dirname $0`
 GITCONF=$CDIR/../git/gitconfig
 GITIGNORE=$CDIR/../git/gitignore
 GITCF=$CDIR/../../.gitconfig

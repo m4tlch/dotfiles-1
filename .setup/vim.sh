@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "Installing vim, please wait ..."
 
-CDIR=`dirnmae $0`
+CDIR=`dirname $0`
 VIMDIR=$CDIR/../.vim
 
 ln -sd $CDIR/vim ~/.vim
