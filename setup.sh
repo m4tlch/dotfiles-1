@@ -1,5 +1,7 @@
 #!/bin/bash
 
+DIR=`dirnmae $0`
+
 bash $DIR/.setup/vim.sh
 bash $DIR/.setup/zsh.sh
 bash $DIR/.setup/font.sh
